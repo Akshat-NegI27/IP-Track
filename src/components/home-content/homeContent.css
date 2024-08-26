@@ -1,11 +1,21 @@
 @font-face {
+  font-family: gilroyy;
+  src: url(../../fonts/Gilroy-ExtraBold.otf);
+}
+@font-face {
   font-family: gilroy;
-  src: url(/fonts/Gilroy-ExtraBold.otf);
+  src: url(../../fonts/Gilroy-Light.otf);
 }
 @font-face {
   font-family: manrope;
-  src: url(/fonts/Manrope-VariableFont_wght.ttf);
+  src: url(../../fonts/Manrope-VariableFont_wght.ttf);
 }
+@font-face {
+  font-family: helvetica2;
+  src: url(../../fonts/helvetica.woff);
+}
+
+
 
 *{
   margin: 0;
@@ -36,6 +46,8 @@ nav h1{
   position: relative;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0);
+  font-family: gilroyy;
+
 }
 
 nav h1:before{
@@ -45,7 +57,6 @@ nav h1:before{
     display: inline-flex;
     background-color: white;
     color: #a5a5a5;
-
     position: absolute;
     top: 50%;
     transform-origin: left;
@@ -129,6 +140,7 @@ align-self:center;
 }
 
 nav button{
+  font-family: gilroyy!important;
   background-color: rgb(58, 58, 58);
   display: flex;
   align-items: center;
@@ -190,6 +202,7 @@ nav button:hover svg{
 }
 
 #page1 h1{
+  font-family: gilroyy!important;
   font-size: 8.5vw;
   text-transform: uppercase;
   font-weight: 900;
@@ -199,7 +212,7 @@ nav button:hover svg{
 }
 
 #page1 p{
-  font-family: Helvetica, sans-serif;
+  font-family: helvetica2;
   text-align: center;
   font-weight: 400;
   font-size: 15px;
@@ -376,6 +389,7 @@ nav button:hover svg{
   overflow: hidden;
 }
 #linear-gradient h6{
+  font-family: gilroyy!important;
   font-size: 9vw!important;
   font-weight: 700;
   text-transform: uppercase;
@@ -395,6 +409,7 @@ nav button:hover svg{
 
 
 #linear-gradient span{
+  font-family: gilroyy!important;
   color: #404040;
   -webkit-text-fill-color: rgba(0, 0, 0, 0.1);
   -webkit-text-stroke-width: 1px;
@@ -482,7 +497,7 @@ nav button:hover svg{
 }
 #text-box p{
   color:rgb(218, 218, 218);
-  font-family: 'NeuePlak-Regular';
+  font-family: helvetica2;
   font-size: 16px;
   line-height: 1.2;
   padding-top: 11px;
@@ -670,7 +685,7 @@ nav button:hover svg{
 
 #card1 p{
   color:rgb(218, 218, 218);
-  font-family: "NeuePlak-Regular";
+  font-family: "helvetica2";
   font-size: 16px;
   line-height: 1.2;
   padding-top: 11px;
@@ -700,17 +715,34 @@ nav button:hover svg{
   line-height: 48px;
 }
 
+@font-face {
+  font-family: NeuePlak-Regular ;
+  src: url(../../fonts/NeuePlakRegular.ttf);
+}
+
+@font-face {
+  font-family: NeuePlak-Regular ;
+  src: url(../../fonts/NeuePlakRegular.ttf);
+}
+
 #card2 p{
   color:rgb(218, 218, 218);
-  font-family: "NeuePlak-Regular";
+  font-family: helvetica2;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
   padding-top: 11px;
   text-align: left;
 }
 
+@font-face {
+  font-family: Arial;
+  src: url(../../fonts/ARIAL.woff);
+}
+
+
 #card3 h2{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
   color: #404040;
   font-weight:500;
   font-size: 55px;
@@ -724,6 +756,7 @@ nav button:hover svg{
 
 #card3span{
   color: rgb(216, 216, 216);
+  font-family: gilroy-light;
 }
 
 
@@ -740,7 +773,7 @@ nav button:hover svg{
   width: 88vw;
   height: 25vh;
   font-size: 10vw;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
   font-weight: lighter;
   border-bottom:1px solid white ;
   margin-left: 2%;

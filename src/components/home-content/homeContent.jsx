@@ -67,8 +67,8 @@ const HomeContent = () => {
 
       <div className="main">
         <div id="page1" data-scroll-section>
-          <h1> IP VULNERABILTY</h1>
-          <h1 >TRACKER</h1>
+          <h1> IP VULNERABILTY
+          <br></br>TRACKER</h1>
           <p>
             The IP analysis system is designed to be versatile, with a wide range of applications across various industries and sectors. Its ability to detect and mitigate network security threats in real-time makes it an invaluable tool for any organization that relies on digital infrastructure.
           </p>

@@ -845,58 +845,60 @@ nav button:hover svg{
 
 
 
-@media only screen and (max-width: 455px) {
-
-
-
+@media only screen and (max-width: 480px) {
 
   .nav{
-    
     width: 100%;
   }
 
 #page1{
-  height: 41vh; 
+  height: 65vh; 
   width: 131%;
 }
 
-
 #page1 h1{
   margin-top: 20vw;
-  font-size: 43px;
+  font-size: 74px;
+  line-height: 3.9rem;
 }
 
 #page1 p{
-  font-size: 8px;
+  font-size: 16px;
   margin-top: 1vW;
   width: 60%;
 }
 
 #page1-bubble{
-  top: 55%;
   scale: 120%;
+  margin-top: 15vw;
+}
+
+#page1-bubble h4{
+font-size: 13px;
 }
 
 #moving-div{
-  margin-top: 5vw;
-  bottom: 62%;
+  margin-top: 7vw;
+  scale: 280%;
+  bottom: 40%;
+  width: 50%;
 }
 
 #page2{
-  height: 35vh;
-  width: 130%;
-
+  height: 45vh;
+  width: 136%;
+  overflow: hidden;
 }
 
 #moving-div2{
-  scale: 110%;
-  width: 124%;
-
+  scale: 200%;
+  width: 90%;
+  overflow: hidden;
 }
 
 #linear-gradient h6{
-  scale: 120%;
-  margin-right:20px;
+  scale: 170%;
+  margin-right:80px;
   margin-top: 25vw;
 }
 
@@ -907,8 +909,8 @@ linear-gradient{
 
 #page3{
   overflow: hidden;
-height: 45vh;
-width: 130%;
+  height: 45vh;
+  width: 130%;
 }
 
 #text-box{

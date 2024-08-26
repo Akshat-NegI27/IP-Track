@@ -18,6 +18,7 @@ import imgpg4bg1 from '../../img/pg4bg1.jpg';
 import imgpg4bg2 from '../../img/pg4bg2.jpg';
 
 import CustomCursor from "../../CustomCursor";
+
 import LocomotiveScroll from 'locomotive-scroll';
 const locomotiveScroll = new LocomotiveScroll();
 import { Helmet } from "react-helmet";
@@ -52,14 +53,13 @@ const HomeContent = () => {
   return (
     <>
       <PreLoader/>
-    
         <CustomCursor></CustomCursor>
         <Helmet>
+          <script src="./script.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-                <script src="./scroll.js" type="text/javascript"/>
-                <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet" />
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" rel="stylesheet" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         </Helmet>
     
 
@@ -109,9 +109,8 @@ const HomeContent = () => {
 
         <div id="page2">
         <div id= "linear-gradient" >
-        <h1 > W<span>EB </span> 
-          <br />TRACKER</h1>
-
+        <h6 > W<span>EB </span> 
+          <br />TRACKER</h6>
         </div>
         <div id="moving-div2">
             

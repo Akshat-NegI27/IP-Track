@@ -4,6 +4,10 @@
   src: url(../../fonts/Gilroy-ExtraBold.otf);
 }
 @font-face {
+  font-family: sfprotext;
+  src: url(../../fonts/SFPRODISPLAYMEDIUM.OTF);
+}
+@font-face {
   font-family: gilroy;
   src: url(../../fonts/Gilroy-Light.otf);
 }
@@ -23,31 +27,30 @@
   box-sizing:border-box;
   font-family: 'manrope';
   color: #ffffff;
-  /* cursor: none; */
+  cursor: none;
 }
 
 nav{
   position: fixed;
   width: 100%;
-  height: 11vh;
+  height: 7vh;
+  padding: 0 9vw;
   display: flex;
   align-items: center;
-  padding: 2vw 10.4vw;
   justify-content: space-between;
   color: rgb(218, 218, 218);
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: saturate(180%) blur(10px);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
   z-index: 99;
 }
 nav h1{
-  color: gray;
+  color:rgba(255, 255, 255,0.7);
   width: fit-content;
+  font-size: 20px;
   height: fit-content;
   position: relative;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0);
   font-family: gilroyy;
-
 }
 
 nav h1:before{
@@ -71,19 +74,26 @@ nav h1:hover::before{
 width: 100%;
 transform: translateX(0%);
 }
-
+.sidebar {
+  opacity: 0%;
+}
 nav h1:hover{
   color: #ffffff;
 }
 
 #link_Styles{
-  color:rgb(218, 218, 218);
+  color:rgba(255, 255, 255,0.7);
   font-weight: 400px;
-  font-size: large;
+  font-family: sfprotext;
+  font-size: 15px;
   text-decoration: none;
   position: relative;
   display: block;
-  margin: 0 25px;
+  margin: 0 32px;
+}
+
+#link_Styles:hover{
+  color: #ffffff;
 }
 
 .nav-part2 ul{
@@ -113,9 +123,8 @@ nav h1:hover{
 }
 
 .nav-part2 ul:hover li{
-  opacity:  .9;
-  filter: blur(2px)
-  contrast(100);
+  opacity:  0.9;
+  filter: blur(0.8px) contrast(100);
 }
 
 .nav-part2 ul li:hover{
@@ -136,21 +145,20 @@ align-self:center;
   font-size: 1vw;
   font-weight: 500;
   text-transform: uppercase;
-  
 }
 
 nav button{
-  font-family: gilroyy!important;
+  font-family: sfprotext!important;
   background-color: rgb(58, 58, 58);
   display: flex;
   align-items: center;
-  padding: 14px 14px;
-  font-size: 1vw;
-  width: 9vw;
+  padding: 6px 14px;
+  font-size: 14px;
+  width: fit-content;
   place-content: center;
   text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 40px;
+  font-weight: 400;
+  border-radius: 30px;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(255, 255, 255);
@@ -178,14 +186,12 @@ nav button:hover svg{
   fill:#000000
 }
 
-
-#nav-bottom {
-  width: 79%;
-  height: 0vh;
+#nav-bottom{
+  width: 82%;
   position: absolute;
   top: 100%;
   background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(20px);
   z-index: 99;
   border-bottom: 1px solid rgb(216, 216, 216);
 }
@@ -511,6 +517,7 @@ nav button:hover svg{
     background-repeat: repeat;
     background-image: linear-gradient(360deg, rgb(0, 0, 0), transparent);
     overlay: 100%;
+    align-self: flex-end;
 }
 
 
@@ -653,7 +660,6 @@ nav button:hover svg{
 
 #captions{
   margin-top: 1vw;
-  color: #000;
   padding: 1vw;
   width: 100%;
   height: 100%;
@@ -847,52 +853,124 @@ nav button:hover svg{
 
 @media only screen and (max-width: 880px){
 
+  .preloader {
+  height: 200vh;
+  height: calc(var(--vh, 1vh) * 200);
+  width: 100%;
+  background: black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden !important;
+  z-index: 999;
+
+  .texts-container {
+      font-family: "Manrope", sans-serif;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      width: 260;
+      overflow: hidden;
+      font-weight: 300;
+      opacity: 0;
+      color: white;
+      font-size: 18px;
+  }
+}
   nav{
     width: 100%;
-    height: 7vh;
-    overflow: hidden;
+    height: 9.8vh;
   }
   
 
   nav h1{
-    font-size: 4vw;
+    font-size: 5vw;
+    color: rgb(216, 216, 216);
   }
 
   .nav-part2 ul{
-  margin-bottom: 200vw;
   z-index: -99;
-  color: #000;
-  left: 200vw;
-  opacity: 0%;
+  margin-left: 1000vw;
+  opacity: 100%;
   }
 
-  .nav-part2 ul li{
-  color: #000;
-    left: 25vw;
+  nav .sidebar ul{
+    width: 100%;
+    height: 100%;
+    padding-top: 10vw;
+    }
+
+    .sidebar li{
+      width: 100%;
+      height: 10%;
+      margin-bottom: 2%;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      border-bottom: 1px solid #ffffff ;
+      }
+
+      .sidebar #link_Styles{
+      font-size: 40px;
+      padding: 8px 8px;   
+      font-weight: 800;
+      color: rgb(216, 216, 216);
+      }
+
+  nav .sidebar{
+    height: 190vh;
+    margin-right: 500vw ;
+    opacity: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sidebar li{
+    width: 100%;
   }
 
   nav button{
-    font-size: 1.5vw;
+    font-size: 4vw;
     width: 25vw;
-    opacity: 0%;
   }
 
 #page1{
   height: 110vh; 
   width: 176%;
-}
 
-#page1 h1{
+h1{
   margin-top: 20vw;
   font-size: 68px;
   line-height: 3.9rem;
 }
 
-#page1 p{
+p{
   font-size: 16px;
   margin-top: 15vw;
   line-height: 25px;
   width: 70%;
+}
 }
 
 #page1-bubble{
@@ -913,15 +991,15 @@ font-size: 13px;
 
 #page2{
   height: 110vh;
-  width: 176%;
-  overflow: hidden;
+  width: 180%;
 }
 
 #moving-div2{
   scale: 200%;
-  width: 90%;
-  overflow: hidden;
+  width: 120%;
+  margin-bottom: 25%;
 }
+
 
 #linear-gradient h6{
   scale: 270%;
@@ -930,15 +1008,10 @@ font-size: 13px;
   margin-top: 20vw;
 }
 
-.linear-gradient{
-  height: 35vh;
-  width: 176%;
-}
-
 #page3{
   overflow: hidden;
-  height: 45vh;
-  width: 130%;
+  height: 100%;
+  width: 180%;
 }
 
 #text-box{
@@ -954,9 +1027,35 @@ font-size: 13px;
 }
 
 #page3 video { 
-  height: 35vh;
-  margin-bottom: 40vh;
-  width: 80%; 
+  height: 65vh;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+}
+
+#video-container{
+  width: 100%;
+  height: 100%;
+  display:flex;
+  align-items: center;
+  padding: 20vw;
+  position:absolute;
+  z-index: 4;
+  
+}
+
+#text-box{
+  max-width: 100%;
+  width: 100%;
+  margin-left: 1vw;
+  margin-top: -7vw;
+  background: var(--ec-800);
+  color: var(--white);
+  padding: 30px 42px 40px 30px;
+  z-index: 25;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0,0.4);
 }
 
 #text-box p{
@@ -966,8 +1065,9 @@ font-size: 13px;
 
 #video-box{
   height: 100%;
-  width: 100%;
-  padding: 0;
+  width: 120%;
+  padding-right: 65%;
+  margin: 0;
 }
 
 #pattern{
@@ -977,7 +1077,64 @@ height: 45vh;
 
 #page4{
   height: auto;
-  width: 130%;
+  width: 180%;
+}
+#images{
+  scale: 140%;
+  margin: 0;
+}
+
+#captions{
+  width: 180%;
+  height: 100%;
+
+  #card1{
+    width: 60%;
+    height: fit-content;
+    padding: 22px 42px 22px 22px;
+    h1{
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+
+  #card2{
+    width: 60%;
+    height: fit-content;
+    padding: 22px 42px 22px 22px;
+    h2{
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+
+  #card3{
+    width: 100%;
+    height: 10%;
+    margin-left: 20vh;
+    margin-bottom: 14%;
+    h2{
+      width: 100%;
+      font-size: 40px;
+      line-height: 95%;
+    }
+  }
+
+}
+
+#page5{
+  height: 100vh;
+  width: 180%;
+
+  h1{
+    background-color: #000;
+    width: 90%;
+    height: fit-content;
+    font-size: 25vw;
+    margin-top: 20vw;
+    border-bottom:3px solid white ;
+    margin-left: 5%;
+  }
 }
 
 #captions{
@@ -1033,6 +1190,5 @@ height: fit-content;
 #images .img3{
   margin-top: 15vw;
 }
-
 
 }

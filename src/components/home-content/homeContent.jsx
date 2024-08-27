@@ -137,7 +137,7 @@ const HomeContent = () => {
 
         <div id="page3">
         <div id="pattern"></div>
-
+        
        <div id="video-box">
           <div id="video-container">
               <video autoPlay loop muted src={Video} type="video/mp4"/>
@@ -231,8 +231,6 @@ const HomeContent = () => {
         
       </Swiper>
         </div>
-
-
 
       </div>
     </>

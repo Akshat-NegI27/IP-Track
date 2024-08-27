@@ -845,32 +845,60 @@ nav button:hover svg{
 
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 880px){
 
-  .nav{
+  nav{
     width: 100%;
+    height: 7vh;
+    overflow: hidden;
+  }
+  
+
+  nav h1{
+    font-size: 4vw;
+  }
+
+  .nav-part2 ul{
+  margin-bottom: 200vw;
+  z-index: -99;
+  color: #000;
+  left: 200vw;
+  opacity: 0%;
+  }
+
+  .nav-part2 ul li{
+  color: #000;
+    left: 25vw;
+  }
+
+  nav button{
+    font-size: 1.5vw;
+    width: 25vw;
+    opacity: 0%;
   }
 
 #page1{
-  height: 65vh; 
-  width: 131%;
+  height: 110vh; 
+  width: 176%;
 }
 
 #page1 h1{
   margin-top: 20vw;
-  font-size: 74px;
+  font-size: 68px;
   line-height: 3.9rem;
 }
 
 #page1 p{
   font-size: 16px;
-  margin-top: 1vW;
-  width: 60%;
+  margin-top: 15vw;
+  line-height: 25px;
+  width: 70%;
 }
 
 #page1-bubble{
   scale: 120%;
-  margin-top: 15vw;
+  margin-top: 15%;
+  margin-bottom: 25%;
 }
 
 #page1-bubble h4{
@@ -878,15 +906,14 @@ font-size: 13px;
 }
 
 #moving-div{
-  margin-top: 7vw;
-  scale: 280%;
-  bottom: 40%;
+  scale: 350%;
+  bottom: 0%;
   width: 50%;
 }
 
 #page2{
-  height: 45vh;
-  width: 136%;
+  height: 110vh;
+  width: 176%;
   overflow: hidden;
 }
 
@@ -897,14 +924,15 @@ font-size: 13px;
 }
 
 #linear-gradient h6{
-  scale: 170%;
-  margin-right:80px;
-  margin-top: 25vw;
+  scale: 270%;
+  margin: 0px;
+  margin-left: 100vw;
+  margin-top: 20vw;
 }
 
-linear-gradient{
+.linear-gradient{
   height: 35vh;
-  width: 130%;
+  width: 176%;
 }
 
 #page3{

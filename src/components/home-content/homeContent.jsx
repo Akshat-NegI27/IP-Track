@@ -66,20 +66,19 @@ const HomeContent = () => {
 
 
       <div className="main">
-        <div id="page1" data-scroll-section>
+        <div className="page1" data-scroll-section>
           <h1> IP VULNERABILTY
           <br></br>TRACKER</h1>
-          <p>
-            The IP analysis system is designed to be versatile, with a wide range of applications across various industries and sectors. Its ability to detect and mitigate network security threats in real-time makes it an invaluable tool for any organization that relies on digital infrastructure.
+          <p>The IP analysis system is designed to be versatile, with a wide range of applications across various industries and sectors. Its ability to detect and mitigate network security threats in real-time makes it an invaluable tool for any organization that relies on digital infrastructure.
           </p>
-          <div id="page1-bubble">
+          <div id="trio-buttons">
             <h4> Information </h4>
             <h4> Data </h4>
             <h4> Vulnerablity </h4>
           </div>
 
 
-          <div id="moving-div">
+          <div className="moving-div">
             <div id="blur-left"></div>
 
             <div className="move">
@@ -106,14 +105,13 @@ const HomeContent = () => {
             <div id="blur-right"></div>
           </div>
         </div>
-
-        <div id="page2">
+ 
+        <div className="page2">
         <div id= "linear-gradient" >
         <h6 > W<span>EB </span> 
           <br />TRACKER</h6>
         </div>
-        <div id="moving-div2">
-            
+        <div className="moving-div2">
         <div className="char">
                 <h1>First</h1>
                 <h1>SHODAN</h1>
@@ -127,32 +125,27 @@ const HomeContent = () => {
             <div className="char">
                 <h1>Webhack</h1>
                 <h1>SHODAN</h1>
-                
             </div>
           
           </div>
         </div>
 
 
-
-        <div id="page3">
-        <div id="pattern"></div>
-        
-       <div id="video-box">
-          <div id="video-container">
+        <div className="page3">
+        <div id="gradient"></div>
+        <div id="box">
+          <div id="video-box">
               <video autoPlay loop muted src={Video} type="video/mp4"/>
             </div>
-
             <div id="text-box">
                 <h2>Real-Time Threat Detection</h2>
                 <p>The system's ability to analyse IP traffic as it happens provides a powerful defence mechanism, allowing immediate identification and response to potential security threats. This real-time capability ensures that malicious activities, such as DDoS attacks or unauthorized access attempts, are detected and mitigated before they can cause significant damage.</p>
               </div>
-       </div>
+          </div>
         </div>
 
 
-
-
+{/*
         <div id="page4">
         <img className="imgpg4bg1" src={imgpg4bg1} alt="" />
         <img className="imgpg4bg2" src={imgpg4bg2} alt="" />
@@ -188,16 +181,17 @@ const HomeContent = () => {
           
         </div>
 
+*/}
 
+        <div className="page5">
 
-
-        <div id="page5">
         <h1 >Get in touch.</h1>
-        <Swiper
+        
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -206,32 +200,38 @@ const HomeContent = () => {
         modules={[Autoplay]}
         className="mySwiper"
         >
-          
+      
         <SwiperSlide>
-          <div className="slide1">
+          <div className="slides">
           <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1723643136002-d49a1d7309d1?q=80&w=1414&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1719094251938-e596af9261de?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
           " alt="" />
-      
           </div>
-          
-          </SwiperSlide>
+        </SwiperSlide>
         <SwiperSlide>
-        <div className="slide1">
+          <div className="slides">
           <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1723643136002-d49a1d7309d1?q=80&w=1414&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1632283409723-4cd4560e0857?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1719094251938-e596af9261de?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
           " alt="" />
-
           </div>
         </SwiperSlide>
-        
-      </Swiper>
-        </div>
+        <SwiperSlide>
+          <div className="slides">
+          <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <img src="https://images.unsplash.com/photo-1723643136002-d49a1d7309d1?q=80&w=1414&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <img src="https://images.unsplash.com/photo-1632283409723-4cd4560e0857?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <img src="https://images.unsplash.com/photo-1719094251938-e596af9261de?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+          " alt="" />
+          </div>
+        </SwiperSlide>
 
+      </Swiper>
+        </div> 
+        
       </div>
     </>
   );

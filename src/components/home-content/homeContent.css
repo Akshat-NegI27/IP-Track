@@ -360,7 +360,7 @@ nav button:hover svg{
   -webkit-text-fill-color: rgb(216, 216, 216);
 }
 
-.moving-div2 {
+.moving-div2{
   z-index: 3;
   display: flex;
   align-items: flex-end;
@@ -395,7 +395,7 @@ nav button:hover svg{
   display: grid;
   place-items:center;
   font-weight:normal;
-  font-family: Helvetica;
+  font-family: helvetica2;
   text-align: center;
   text-transform: uppercase;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
@@ -981,25 +981,26 @@ nav button:hover svg{
   align-items: center;
   padding: 10vw 0 10vw 20vw ;
 }
-.page3 video { 
-  height: 90vh;
+.page3 video{ 
+  height: 70vh;
   width: 140vw;
   padding: 0;
   margin: 0;
 }
 
 #text-box{
-  width: 60vh;
-  margin-bottom: 25vh;
+  width: 50vh;
+  margin-bottom: 20vh;
+  padding-right: 3vh;
 }
 
 #text-box h2{
-  font-size: 20px;
+  font-size: 22px;
   line-height: 20px;
 }
 
 #text-box p{
-  font-size: 12px;
+  font-size: 13px;
   line-height: 13px;
 }
 

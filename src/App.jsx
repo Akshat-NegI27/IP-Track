@@ -3,6 +3,8 @@ import About from "./pages/about/About"
 import Legal from "./pages/legal/Legal"
 import Contact from "./pages/contact/Contact"
 import Ip from "./pages/ip/Ip"
+import CustomCursor from "./CustomCursor";
+
 import {
     BrowserRouter,
     Routes,
@@ -11,6 +13,7 @@ import {
 const App = () => {
   return (
     <>
+            <CustomCursor></CustomCursor>
       <BrowserRouter>
         <Routes>
           <Route exact path = "/" element = {<Home/>}/>

@@ -10,6 +10,11 @@ import Video from "../../img/video.mp4";
 import Videocsf from "../../img/csf.mp4";
 import Videovip from "../../img/vip.mp4";
 import imgpg4 from '../../img/page4.jpg';
+import img1pg4 from '../../img/grid1.jpg';
+import img2pg4 from '../../img/grid2.jpg';
+import img3pg4 from '../../img/grid3.jpg';
+
+
 import img441 from '../../img/pg441.jpg';
 import img442 from '../../img/pg442.jpg';
 import img443 from '../../img/pg443.jpg';
@@ -53,7 +58,6 @@ const HomeContent = () => {
   return (
     <>
       <PreLoader/>
-        <CustomCursor></CustomCursor>
         <Helmet>
           <script src="./script.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
@@ -66,6 +70,7 @@ const HomeContent = () => {
 
 
       <div className="main">
+
         <div className="page1" data-scroll-section>
           <h1> IP VULNERABILTY
           <br></br>TRACKER</h1>
@@ -107,28 +112,19 @@ const HomeContent = () => {
         </div>
  
         <div className="page2">
-        <div id= "linear-gradient" >
+        <div id= "linear-gradient">
         <h6 > W<span>EB </span> 
           <br />TRACKER</h6>
+          <section class="container">
+           <p class="loop-text">WEBHACK GEOLOCATION</p>
+          <p class="loop-text">WEBHACK GEOLOCATION</p>
+          <p class="loop-text">WEBHACK GEOLOCATION</p>
+        </section>
         </div>
-        <div className="moving-div2">
-        <div className="char">
-                <h1>First</h1>
-                <h1>SHODAN</h1>
-                <h1>Webhack</h1>
-                <h1>SHODAN</h1>
-                <h1>Geolocation</h1>
-                <h1>SHODAN</h1>
-                <h1>Webhack</h1>
-                <h1>SHODAN</h1>
-            </div>
-            <div className="char">
-                <h1>Webhack</h1>
-                <h1>SHODAN</h1>
-            </div>
-          
-          </div>
+        
         </div>
+
+        <div className="parallax1"></div>
 
 
         <div className="page3">
@@ -144,6 +140,22 @@ const HomeContent = () => {
           </div>
         </div>
 
+        <div className="parallax">
+
+        </div>
+        
+
+        <div class="page4">
+          <div className="border">
+            <h1>NEW CONTENT</h1>
+            <div className="imagesbox">
+          <img  className="img41" src={img1pg4} alt="" />
+          <img  className="img42" src={img2pg4} alt="" />
+          {/* <img  className="img43" src={img3pg4} alt="" /> */}
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae error expedita aspernatur illum odit accusantium repellat itaque iusto natus commodi, obcaecati atque, non aliquam molestias earum, iure placeat? Modi, optio.</p>
+          </div>
+        </div>
 
 {/*
         <div id="page4">
@@ -178,7 +190,6 @@ const HomeContent = () => {
             </div>
 
             </div>
-          
         </div>
 
 */}
@@ -238,3 +249,9 @@ const HomeContent = () => {
 };
 
 export default HomeContent;
+
+
+
+const parallax = document.getElementById('parallax')
+document.addEventListener('scroll', () => {
+parallax.style.backgroundPositionY = `-${window.scrollY* 0.1}px`})

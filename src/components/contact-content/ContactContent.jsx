@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll';
 import LocomotiveScroll from 'locomotive-scroll';
-import './ContactContent.css';
+import "./ContactContent.css";
 
 
 const Wrapper = styled.section`

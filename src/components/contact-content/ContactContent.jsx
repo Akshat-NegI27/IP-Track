@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { scroller } from 'react-scroll';
 import LocomotiveScroll from 'locomotive-scroll';
 import './ContactContent.css';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import ReCAPTCHA from 'react-google-recaptcha';
+
 
 const Wrapper = styled.section`
   background-color: #000;

@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@material-tailwind/react": "^2.1.10",
     "@react-spring/web": "^9.7.4",
     "boxicons": "^2.1.4",
+    "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "locomotive-scroll": "^5.0.0-beta.14",
     "react": "^18.3.1",
@@ -22,7 +24,8 @@
     "react-scroll": "^1.9.0",
     "saas": "^1.0.0",
     "styled-components": "^6.1.12",
-    "swiper": "^11.1.9"
+    "swiper": "^11.1.9",
+    "whois-api-js": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

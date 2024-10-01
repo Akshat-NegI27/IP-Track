@@ -1,22 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { DOMParser } from "xmldom";
 import "./ipContent.css";
-import WhoIsApi from 'whois-api-js';
-import fs from 'fs';
-import {config} from 'dotenv'
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-
-import CardComponent from "../card-content/cardContent";
-const IptrackerContent = () => {
-  const [whoisData, setWhoisData] = useState(null);
-  const inputRef = useRef(null);
+import axios from 'axios'
+const IpContent = () => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
+  const inputRef = useRef(null);
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       console.log(inputValue);
@@ -24,6 +14,38 @@ const IptrackerContent = () => {
       if (isValidUrl) {
         console.log("[VALIDATED Url: ]", inputValue);
         setError("");
+        const whoIsFetch = async () => {
+          try {
+            var response = await axios.get(
+              `https://www.whoisxmlapi.com/whoisserver/WhoisService?domainName=${inputValue}`,
+              {
+                params: {
+                  apiKey: "at_VVlUqIjH3ncaOfgN0di1lvbkdym7X",
+                },
+              }
+            );
+            console.log("Who is Data");
+          //   const jsonResponse = new DOMParser().parseFromString(response,'text/html')
+          //   const div = jsonResponse.getElementsByTagName('div')[0];
+          //   const paragraphs = div.getElementsByTagName('p');
+          //   const property = paragraphs[0].textContent;
+          //   const value = paragraphs[1].textContent.split(' ')
+          //       .pop().replace('(', '')
+          //       .replace(')', '');
+
+          //   const json = {
+          //         property,
+          //         value,
+          //         };
+          // console.log(JSON.stringify(json, null, 2));
+            console.log(response.data);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            setError("Whois lookup failed");
+          }
+        };
+        whoIsFetch();
+        return whoIsFetch();
       } else {
         setError("Please Enter a Valid Url");
       }
@@ -41,27 +63,10 @@ const IptrackerContent = () => {
     return urlPattern.test(urlString);
   };
 
-  const fetchData = async (url) => {
-    try {
-      const apiKey = process.env.whoISAPI;
-      if (!apiKey) {
-        console.error("Error: Missing API key from environment variables.");
-        return;
-      }
-
-      const client = new WhoisApi.Client(apiKey);
-      const whoisData = await client.get(url);
-      setWhoisData(whoisData);
-    } catch (error) {
-      console.error(`Error fetching data:`, error);
-      setError("Error fetching data. Please try again later.");
-    }
-  };
-
   return (
     <>
       <div id="page1">
-        <h1 id="Title">IP VULNERABILTY</h1>
+        <h1 id="Title">IP VULNERABILITY</h1>
         <h1>TRACKER</h1>
         <p>
           This is used to perform Vulnerability Scanning on the url you enter
@@ -82,19 +87,19 @@ const IptrackerContent = () => {
             onKeyDown={handleKeyDown}
             placeholder="Enter a website's url..."
           />
+          {error && <p className="error">{error}</p>}
         </div>
       </div>
 
       <hr />
-      {whoisData && (
-        <CardComponent title="WHOIS Information" data={whoisData} />
-      )}
-    
+
+
+      <div className="card">
+        <h1>Domain Name: {inputValue}</h1>
+        {/* <h1>Organisation Name: {response.data.Organisation}</h1> */}
+      </div>
     </>
   );
- 
 };
 
-WhoIsApiTest();
-
-export default IptrackerContent;
+export default IpContent;

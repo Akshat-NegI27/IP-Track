@@ -1,8 +1,6 @@
-*{
-  box-sizing: border-box;
-}
-body{
-  margin: 0px;
+
+/* body{
+  margin-top: 0px;
   padding: 0px;
   width: 100vw;
   height: 100vh;
@@ -11,15 +9,29 @@ body{
   align-items: center;
   background-color: #000;
   font-family: 'Lato' !important;
-}
+} */
 .searchBox{
   width: fit-content;
   height: fit-content;
   position: relative;
 }
+
+.page1
+{
+height: 100vh;
+width: auto;
+h1{
+  font-size: 20VH;
+  margin: 0PX;
+  /* border: #ff0000 solid 3px; */
+  padding: 0PX;
+  height: fit-content;
+}
+}
+
 .inputSearch{
-  height: 50px;
-  width: 50px;
+  height: 25px;
+  width: 25px;
   border-style: none;
   padding: 10px;
   font-size: 18px;
@@ -27,7 +39,7 @@ body{
   outline: none;
   border-radius: 25px;
   transition: all .5s ease-in-out;
-  background-color: #46C016;
+  background-color: #ff0000;
   padding-right: 40px;
   color:#fff;
 }
@@ -65,4 +77,79 @@ body{
   background-color: transparent;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+/* Akshat card raw */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family:gilroy;
+}
+
+#pg1{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-container{
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15vw;
+}
+
+.card1{
+  width: 325px;
+  background-color: #a3a3a3;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin: 10px;
+  padding: 1rem;
+  height: fit-content;
+  max-height: 64rem;
+}
+
+
+
+.card-body h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: black !important;
+}
+
+.card-body p {
+  font-size: 15px;
+  color: black !important;
+  line-height: 1.3;
+  text-decoration: underline;
+  
+}
+
+.css-15x27kp{
+  
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 0.25rem;
+}
+
+.css-15x27kp:not(:last-child)
+{
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.css-15x27kp span.lbl {
+  font-weight: bold;
+}
+
+.css-15x27kp span.val {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

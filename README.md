@@ -76,26 +76,30 @@ The system is designed to be both robust and adaptable, using a combination of A
 One of the key components of the system is its comprehensive dashboard, which serves as the main interface for users. The dashboard is structured to present the analyzed data clearly and accessibly, giving a thorough overview of a website’s security status. Users can track a variety of important metrics, including IP information, SSL chain integrity, DNS records, and open port status. Additionally, it offers insights into site performance, security settings, and potential vulnerabilities, making it a practical tool for both technical teams and decision-makers.
 Future Work: 
 Scalability is a central consideration, ensuring that the system can manage increased data loads as more websites are analyzed. It’s also built to integrate smoothly with other security tools, making it a flexible addition to any organization’s security setup. In the future, we plan to incorporate web vulnerability exploitation tools. This will allow the system to test how well websites hold up against potential hacks, offering deeper insights into their security resilience.
+
 Updates we have made till now:
 •	Developed the frontend page.
-
  
-
-
-
 •	Updated the about page.
- 
+ ![Image Alt](https://github.com/Akshat-NegI27/IP-Track/blob/main/%23Screenshots/Home.png?raw=true)
 
 
 •	Added the contact page in the website which is directed to the main email address of our team member.
  
+  ![Image Alt](https://github.com/Akshat-NegI27/IP-Track/blob/main/%23Screenshots/Contact.png?raw=true)
+
 
 •	Developed the Ip tracker page in which we will be performing vulnerability scanning 
  
+  ![Image Alt](https://github.com/Akshat-NegI27/IP-Track/blob/main/%23Screenshots/TRACKER.png?raw=true)
 
 
 •	Here we have integrated multiple APIs to track the vulnerability. 
+
 Example: 
+
+  ![Image Alt](https://github.com/Akshat-NegI27/IP-Track/blob/main/%23Screenshots/DATA.png?raw=true)
+
 
 1.  Domain WHOIS: used to retrieve information such as the domain's registrar, registration date, expiration date, domain owner (if not private), contact information, and more.
 

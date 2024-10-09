@@ -1,41 +1,79 @@
-import React, { useEffect } from 'react';
-import './About.css';
+import React from 'react';
+import './About.css';  // Page-specific styles for the About page
+import aru from '../../img/aru.png';
+import aky from '../../img/aky.png';
+import shr from '../../img/shr.png';
+import ame from '../../img/ame.png';
 
-const AboutContent = () => {
+
+function scrollToProfile(index) {
+  document.getElementById(`profile-${index}`).scrollIntoView({ behavior: 'smooth' });
+}
+
+function Content() {
+  const profiles = [
+    { name: 'Akshat Negi', role: 'Developer', img: aky, email: 'akshatnegiarchit272003@gmail.com', linkedin: 'https://www.linkedin.com/in/me-akshat-negi/', projects: 'https://github.com/Akshat-NegI27' },
+    { name: 'Ameya Taneja', role: 'Backend Developer', img: ame, email: 'ameyataneja1302@gmail.com', linkedin: 'https://www.linkedin.com/in/ameyataneja/', projects: 'https://github.com/realTNEU' },
+    { name: 'Shreyanshi Dobhal', role: 'DataBase Manager', img: shr, email: 'example@example.com', linkedin: '#', projects: '#' },
+    { name: 'Arush Dubey', role: 'FrontEnd Developer', img: aru, email: 'arushdubey360@gmail.com', linkedin: 'https://www.linkedin.com/in/arush-dubey-358840244/', projects: 'http://github.com/ADIR360?tab=repositories' }
+  ];
+
   return (
-    <>
+    <div className="about-page-container">
       <div className="about-container">
         <div className="content">
-          <h1 className="top-heading">ABOUT US</h1>
-          <h2>IP Tracker's Journey</h2>
-          <p>
-            IP Vulnerability Tracker, our journey with a simple yet vision: to empower organizations to safeguard their digital infrastructures from the ever-evolving landscape of cyber threats.
-            Founded by a group of passionate cybersecurity students. We recognized the gap between the growing complexity of network threats and the tools available to combat them. 
-            We worked to develop innovative solutions that not only identify vulnerabilities but also enhance network efficiency, ensuring our clients can operate reliably in an increasingly digital world.
-          </p>
-          <h2>Purpose and Goals</h2>
-          <p>
-            Our primary purpose is to provide cutting-edge IP analysis and security tools that address real-time threats faced by organizations across various sectors. 
-            Our goal is to a secure network environment where they can thrive without the looming worry of cyber incidents. 
-            We believe that by promoting a proactive approach to cybersecurity, we can help organizations reduce risks, protect sensitive data, and sustain long-term operational success.
-          </p>
-          <h2>Offerings</h2>
-          <p>
-            IP Vulnerability Tracker offers a set of tools designed to analyze IP data effectively. 
-            Our flagship product leverages advanced algorithms that detect, classify, and respond to IP traffic anomalies in real-time.
-            Our user-friendly interface empowers users to monitor their networks proactively, ensuring they can act against potential threats.
-          </p>
-          <h2>Call to Action</h2>
-          <p>
-            Join us by using our project in cybersecurity with IP Vulnerability Tracker. 
-            Our solutions are designed to meet your unique needs and help you navigate the complexities of today’s digital landscape. 
-            Explore our offerings and discover how we can partner with you to enhance your network security and mitigate risks effectively.
-            Feel free to contact us.
-          </p>
+          <h1 className="top-heading">ABOUT TEAM</h1>
         </div>
       </div>
-    </>
-  );
-};
 
-export default AboutContent;
+      {/* Cards at the top */}
+      <div className="about-cards-row">
+        {profiles.map((profile, index) => (
+          <div className="about-column" key={index}>
+            <div className="about-card">
+              <img 
+                src={profile.img} 
+                alt={profile.name} 
+                className="about-card-img" 
+                onClick={() => scrollToProfile(index)} 
+              />
+              <div className="about-card-container">
+                <h2>{profile.name}</h2>
+                <p className="about-card-title">{profile.role}</p>
+                <p>{profile.email}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Profile containers */}
+      <div className='about-content'>
+        {profiles.map((profile, index) => (
+          <div className='about-profile' id={`profile-${index}`} key={index}>
+            <main className="about-main">
+              <div className="about-top">
+                <h1>This is</h1>
+                <h3>{profile.name}</h3>
+                <h4>{profile.role}</h4>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi quod repellendus deserunt quos, officiis quo quaerat molestiae libero, nostrum tenetur voluptas, rerum vitae perspiciatis fuga aspernatur accusantium qui illum laudantium.s {profile.role}s for this project</p>
+              </div>
+              <div className='about-buttons'>
+                <a href={profile.linkedin} className="about-cta about-hire">LinkedIn</a>
+                <a href={profile.projects} className="about-cta about-project">SEE MY PROJECTS</a>
+              </div>
+            </main>
+            <figure className="about-figure">
+              <img src={profile.img} alt={profile.name} className='about-img' width={350} />
+              <div className='about-img-bg'></div>
+            </figure>
+          </div>
+        ))}
+      </div>
+
+
+    </div>
+  );
+}
+
+export default Content;

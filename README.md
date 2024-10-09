@@ -2,37 +2,15 @@ ABSTRACT
 
 This report presents a comprehensive analysis of Internet Protocol (IP) data, focusing on detecting and mitigating security threats within a network. The project leverages advanced algorithms to identify and classify IP traffic anomalies, with the aim of enhancing network security. By analysing sample IP data and employing a reference algorithm, the project aims to highlight vulnerabilities, mitigate risks, and improve overall network efficiency.
 
-
 INTRODUCTION :
 
 With our growing hyper-connected world , our dependence on the Internet has increasingly grown , with innovation like e-commerce , fast communication . Each day , huge amounts of data travels through the globe . However with this massive flow of personal and public data daily , there comes a very significant need to safeguard Data and Networks , from various Cyber Threats.  
 
 The growing dependence on the Internet and innovation have led to a significant need to safeguard data and networks from cyber threats. This project aims to analyze IP traffic data using advanced algorithms to identify potential security breaches. By combining real-time data analysis with automated threat response capabilities, the system provides a dependable defense against cyber attacks. The project focuses on reliable and fast information about IP, enabling the scalability of large-scale networks. The goal is to deliver a comprehensive cybersecurity tool that provides comprehensive protection against cyber threats.
 
-PROBLEM STATEMENT
-
-Traditional IP analysis tools are severely limited in their capacity to identify and mitigate security threats in real time due to the complexity and size of modern networks. Due to these flaws, networks may be compromised and breaches may occur. Cybercriminals may take advantage of these vulnerabilities. This project is focused on creating a sophisticated IP vulnerability tracker framework in order to address this important problem. In order to provide a dependable and scalable defense against the ever-changing landscape of cyber risks, the system is built to provide accurate, real-time detection and response to security threats.
-
-
-SWOT ANALYSIS
-
-Strengths
-●	Real-Time Threat Detection: The system's ability to analyse IP traffic as it happens provides a powerful defence mechanism, allowing immediate identification and response to potential security threats. This real-time capability ensures that malicious activities, such as DDoS attacks or unauthorized access attempts, are detected and mitigated before they can cause significant damage.
-●	Scalability: Designed to handle vast amounts of data, vulnerability tracker system is highly scalable, making it suitable for large, complex networks with millions of IP connections. This adaptability ensures that the system remains effective as network demands grow, from small businesses to global enterprises.
-
-Weaknesses
-●	Resource-Intensive Processing: The computational demands of real-time IP traffic analysis, especially in large-scale networks, can be significant. This may require substantial investment in hardware and computational resources, potentially limiting its accessibility to organizations with smaller IT budgets.
-●	
-Opportunities
-●	Integration with Existing Security Infrastructures: The Vulnerability tracker system can be seamlessly integrated with other security tools like Geolocation. This integration offers a holistic approach to threat management, combining real-time detection with broader incident response capabilities.
-●	Customization for Industry-Specific Needs: The system can be tailored to meet the unique security requirements of different industries, such as finance, healthcare, and government. By customizing detection algorithms and thresholds, the system can provide targeted protection against industry-specific threats, increasing its value and relevance.
-
-Threats
-●	Evolving Cyber Threat Landscape: The constantly changing nature of cyber threats poses a challenge to the effectiveness of this vulnerability tracker system. New attack techniques and vulnerabilities may emerge that the current algorithms and data models are not equipped to handle, necessitating continuous updates and adaptations.
-●	Data Privacy and Regulatory Compliance: Handling and analysing IP data, especially in regions with strict data protection laws, introduces potential privacy concerns. Ensuring compliance with regulations and other privacy frameworks is crucial to avoid legal repercussions and maintain user trust.
-
 Project Architecture
 The Vulnerability Tracker project architecture is designed to deliver comprehensive insights into website security and performance by integrating multiple scanning tools and APIs. The system is built with a modular approach, ensuring scalability, reliability, and ease of integration with various external services.
+
 1. System Overview
 The system architecture consists of several key components:
 ●	Frontend (ReactJS): The user interface is built with React, providing an interactive dashboard where users can view detailed insights about a website. This includes sections for IP information, SSL chain, DNS records, server location, open ports, and more.
@@ -107,16 +85,10 @@ o	Provides a comprehensive WHOIS API that offers real-time data on domains.
 o	Features include parsing of WHOIS records and support for all major domain extensions (TLDs).
 o	Offers additional tools for IP address WHOIS, reverse WHOIS lookup, and more.
  
-
 2.	DNS information refers to details about how a domain is set up and resolved across the internet. Key DNS records include:
       A Record: Maps a domain to an IPv4 address.
       CNAME Record: Aliases one domain name to another (used for subdomains)
       MX Record: Specifies mail servers responsible for email delivery.
-
- 
-
-
-
 
 3.	SSL certificate information provides details about a domain's secure connection. Key elements include:
 Certificate Issuer: The authority (e.g., Let's Encrypt, DigiCert) that issued the SSL certificate.

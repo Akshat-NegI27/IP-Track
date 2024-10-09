@@ -15,7 +15,13 @@ The Vulnerability Tracker project architecture is designed to deliver comprehens
 The system architecture comprises several key components:
 
 - **Frontend (ReactJS):** The user interface is built using React, providing an interactive dashboard where users can view detailed security reports.
+  
+  ![Screenshot - Dashboard Overview](path/to/screenshot1.png)
+  
 - **Backend (Node.js):** The backend service is developed using Node.js and handles data processing, aggregation of scan results, and API communication.
+  
+  ![Screenshot - System Architecture](path/to/screenshot2.png)
+
 - **Database (MongoDB):** A NoSQL database is used to store scan results, historical data, and system configurations.
 - **External APIs:** The system integrates with third-party APIs for security scanning, vulnerability analysis, and data enrichment.
 
@@ -23,8 +29,13 @@ The system architecture comprises several key components:
 The system integrates various scanning tools and APIs to detect potential vulnerabilities. These components are configured to run automated scans at regular intervals.
 
 - **Web Vulnerability Scanners:** Perform regular scans of the target websites, identifying weaknesses like SQL injection, XSS vulnerabilities, and configuration issues.
+  
+  ![Screenshot - Web Vulnerability Scan Results](path/to/screenshot3.png)
+  
 - **API Scanners:** These scan APIs for potential vulnerabilities such as improper authentication, authorization flaws, and data exposure.
 - **Port Scanners:** Conduct scans of open ports on the target network, identifying potential entry points for attackers.
+
+  ![Screenshot - Port Scan Results](path/to/screenshot4.png)
 
 ## Area of Application
 The IP analysis system offers crucial insights and protection across various sectors. Here are four key areas where the system can be effectively utilized:
@@ -33,6 +44,8 @@ The IP analysis system offers crucial insights and protection across various sec
    - **Use:** Continuous monitoring of enterprise networks for anomalies and security breaches, providing real-time analysis and threat detection.
    - **Benefits:** Enhances protection of sensitive corporate data, ensures business operation integrity, and mitigates cyber threat risks.
 
+   ![Screenshot - Corporate Security Monitoring](path/to/screenshot5.png)
+
 2. **Financial Sector**
    - **Use:** Monitors transaction networks and online banking platforms to detect fraudulent activities and security breaches.
    - **Benefits:** Safeguards financial transactions, protects customer information, and prevents financial losses due to cyber-attacks.
@@ -40,6 +53,8 @@ The IP analysis system offers crucial insights and protection across various sec
 3. **E-Commerce Platforms**
    - **Use:** Evaluates traffic patterns for fraudulent transactions and potential security threats in online retail environments.
    - **Benefits:** Secures payment information, maintains customer trust, and mitigates risks that could affect the business’s reputation and stability.
+
+   ![Screenshot - E-Commerce Threat Detection](path/to/screenshot6.png)
 
 4. **Healthcare Industry**
    - **Use:** Assesses network security within healthcare environments to protect patient data and critical healthcare systems from cyber threats.

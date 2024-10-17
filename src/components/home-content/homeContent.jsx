@@ -233,8 +233,8 @@ const HomeContent = () => {
             </div>
         </div>
 
-
-        <div className="page6">
+        {/*-------------Page-5------------- */}
+        <div className="page5">
           <div className="box">
             <div className="image-container image">
               <img className="hover-image" src={img2pg4} alt="" />
@@ -247,8 +247,8 @@ const HomeContent = () => {
         </div>
 
 
-        {/*-------------Page-5------------- */}
-        <div className="page5">
+        {/*-------------Page-6------------- */}
+        <div className="page6">
 
         <h1 data-scroll data-scroll-speed="0.01" >Get in touch.</h1>        
       <Swiper
@@ -267,9 +267,7 @@ const HomeContent = () => {
         >
       
         <SwiperSlide>
-          <div className="slides">
-          <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-          <img src="https://images.unsplash.com/photo-1723643136002-d49a1d7309d1?q=80&w=1414&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+          <div className="slidess">
           <img src="https://images.unsplash.com/photo-1723643135768-8a57eb0959d4?q=80&w=1601&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
           <img src="https://images.unsplash.com/photo-1719094251938-e596af9261de?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
           " alt="" />

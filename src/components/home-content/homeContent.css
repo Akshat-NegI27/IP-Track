@@ -571,9 +571,8 @@ to {
   width: 500px;
 } */
 
-/* -------------Page-6------------- */
-
-.page6{
+/* -------------Page-5------------- */
+.page5{
   display: flex;
   height: 80vh;
   width: 100%;
@@ -667,8 +666,8 @@ to {
     box-shadow: 0 0 0 10px #ffffff; 
 }
 
-/* -------------Page-5------------- */
-.page5{
+/* -------------Page-6------------- */
+.page6{
   height: 90vh;
   width: 100%;
   display:flex;
@@ -690,6 +689,21 @@ to {
 .swiper{
   width: 100%;
   height: 75vh;
+}
+
+
+.slidess{
+  z-index: 5;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  padding: 15px 0 15px 0;
+  img{
+    display: block;
+    width: 48vw;
+    height: 100%;
+    object-fit:cover;
+  }
 }
 
 .slides{
@@ -789,18 +803,19 @@ to {
   }
 /* -------------Page-1------------- */
 .page1{
-  height: 130vh;
+  height: 90vh;
   overflow: hidden;
-  padding: 15vh 0px 45vh 0px;
+  padding: 5vh 0px 5vh 0px;
+  /* background-color: red; */
   h1{
   font-size: 10vh;
-  margin-top: 20vh;
+  margin-top: 05vh;
   line-height: 9vh;
   width: 85vh;
   }
   p{
-  font-size: 2.6vh;
-  margin-top: 2vh;
+  font-size: 2vh;
+  margin-top: 5vh;
   line-height: 22px;
   width: 70vh;
   height: fit-content;
@@ -808,7 +823,7 @@ to {
   }
 
 .page1 #trio-buttons{
-  margin-top: 3vh;
+  margin-top: 5vh;
   h4{
     font-size: 2vh;
     }
@@ -817,24 +832,70 @@ to {
 .page1 .moving-div{
   scale: 500%;
   width: 36%;
-  margin-bottom: -10vh;
+  margin-top: 10vh;
 }
 
 /* -------------Page-2------------- */
 .page2{
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
+}
+
+.inner-box{
+  justify-content: center!important;
+  align-items: center;
+  align-self: center;
+  height: 90%;
+  h1{
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0!important;
+    padding: 0;
+
+  }
+}
+
+.boxx{
+  padding: 20px 20px!important;
+}
+
+.contentz{
+  margin-top: 3vh;
+  width: 90%;
+  h2{
+    margin-top: 0!important;
+    /* background-color: red; */
+    height: fit-content!important;
+    font-size: 30px;
+    line-height: 55px;
+  }
+  h3{
+    font-size: 10px;
+    margin-top: 0!important;
+    line-height: 10px;
+  }
+}
+
+.image-container{
+  /* margin-top: 5vh!important; */
 }
 
 .moving-div2{
   width: 180vw;
 }
 
-
-#linear-gradient h6{
-  scale: 100%;
+.container1{
+p{
+  font-size: 8vh;
 }
+margin-bottom: 0;
+}
+
+.linear-gradient{
+  justify-content: center;
+}
+
 .loop-text {
   animation: loopText 5s infinite linear;     
   -webkit-text-fill-color: rgb(255, 255, 255);
@@ -874,14 +935,18 @@ to {
 }
 
 #text-box{
-  width: 50vh;
+  width: 40vh;
   margin-bottom: 20vh;
-  padding-right: 3vh;
+  padding: 2vh;
+  margin-left: 25px;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 #text-box h2{
-  font-size: 22px;
-  line-height: 20px;
+  font-size: 18px;
+  margin-top: 0;
+  line-height: normal;
 }
 
 #text-box p{
@@ -890,107 +955,49 @@ to {
 }
 
 /* -------------Page-4------------- */
-#page4{
-  height: auto;
-  width: 180%;
-}
-#images{
-  scale: 140%;
-  margin: 0;
-}
+.page4{
+  height: 100vh;
+  width: 100%;
 
-#captions{
-  width: 180%;
-  height: 100%;
-
-  #card1{
-    width: 60%;
-    height: fit-content;
-    padding: 22px 42px 22px 22px;
-    h1{
-      font-size: 20px;
-      line-height: 20px;
-    }
-  }
-
-  #card2{
-    width: 60%;
-    height: fit-content;
-    padding: 22px 42px 22px 22px;
-    h2{
-      font-size: 20px;
-      line-height: 20px;
-    }
-  }
-
-  #card3{
-    width: 100%;
-    height: 10%;
-    margin-left: 20vh;
-    margin-bottom: 14%;
-    h2{
+  .box{
+    padding: 2vh;
+    flex-direction: column;
+    .image{
       width: 100%;
-      font-size: 40px;
-      line-height: 95%;
+    }
+    p{
+      margin-top: 0!important;
+    }
+    h1{
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   }
-
 }
-#captions{
-  width: 80%;
-  margin-right: 55%;
-  }
-  #card1{
-    height: 45vw;
-    width: 100%;
-  
-  }
-  
-  #card1 h1{
-    line-height: 1.35rem;
-    font-size: 25px;
-  }
-  
-  #card1 p{
-    line-height: auto;
-    font-size: 12px;
-  }
-  
-  #card2{
-    height: 45vw;
-    width: 100%;
-    margin-left: 25%;
-  
-  }
-  
-  #card2 h2{
-    line-height: 1.35rem;
-    font-size: 25px;
-  }
-  
-  #card2 p{
-    line-height: auto;
-    font-size: 12px;
-  }
-  
-  #images{
-    width: 125vw;
-  }
-  
-  #images .img1{
-  width: 55%;
-  height: fit-content;
-  }
-  #images .img2{
-    width: 55%;
-    height: fit-content;  
-  }
-  
-  #images .img3{
-    margin-top: 15vw;
-  }
+
 /* -------------Page-5------------- */
 .page5{
+  height: 100vh;
+  width: 100%;
+
+  .box{
+    padding: 2vh;
+    flex-direction: column;
+    .image{
+      width: 100%;
+    }
+    p{
+      margin-top: 0!important;
+    }
+    h1{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+/* -------------Page-6------------- */
+.page6{
   height: auto;
   width: 100%;
   padding: 2vh 0 vh 2vh 0;
@@ -1005,8 +1012,20 @@ to {
 
 .swiper{
   width: 100%;
-  max-height: 65vh;
+  max-height: 45vh;
   align-items:center;
+}
+
+.slidess{
+  z-index: 5;
+  display: flex;
+  justify-content: space-evenly;
+  height: 58vh;
+  padding: 15px 0 15px 0;
+  img{
+    width: 40vh;
+    height: 60vh;
+  }
 }
 
 .slides{
@@ -1020,19 +1039,4 @@ to {
     height: 60vh;
   }
 }
-
-
-.parallax1{
-  background-position: center;
-  background-size: cover;
-  height: 40vh;
-}
-
-.parallax{
-background-position: center;
-background-size: cover;
-height: 50vh;
-}
-
-
 }

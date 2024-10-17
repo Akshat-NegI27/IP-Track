@@ -10,7 +10,7 @@ import img6 from '../../img/forbes.svg';
 import Video from "../../img/video.mp4";
 import img1pg4 from '../../img/grid1.jpg';
 import img2pg4 from '../../img/grid2.jpg';
-import imgpg21 from '../../img/pg21.jpg';
+import imgpg21 from '../../img/pg21.webp';
 
 import Aos from "aos";
 import 'aos/dist/aos.css'

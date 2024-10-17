@@ -15,7 +15,7 @@ import imgpg21 from '../../img/pg21.jpg';
 import Aos from "aos";
 import 'aos/dist/aos.css'
 
-//Smooth Scroll
+//Smooth Scroll Animation
 import LocomotiveScroll from 'locomotive-scroll';
 const locomotiveScroll = new LocomotiveScroll();
 import "../../assets/animations/locomotive-scroll.css";

@@ -38,7 +38,7 @@ const IpContent = () => {
             formData,
             {
               headers: {
-                "x-rapidapi-key": "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+                "x-rapidapi-key": "9358d00f51mshcfeb14cce8c8756p11376ejsn0ac937197614",
                 "x-rapidapi-host": "domain-dns-and-mail-security-checker.p.rapidapi.com",
                 "Content-Type": "multipart/form-data",
               },
@@ -53,7 +53,7 @@ const IpContent = () => {
             {
               params: { host: inputValue },
               headers: {
-                "x-rapidapi-key": "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+                "x-rapidapi-key": "9358d00f51mshcfeb14cce8c8756p11376ejsn0ac937197614",
                 "x-rapidapi-host": "ssl-certificate-checker2.p.rapidapi.com",
               },
             }

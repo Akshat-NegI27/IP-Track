@@ -1,2 +1,4 @@
 .node_modules
 src/assets/.env
+node_modules
+.env

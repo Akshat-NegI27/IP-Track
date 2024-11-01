@@ -17,7 +17,7 @@ const Footer = () => {
               <p>MINOR PROJECT is a platform that allows you to find the best professionals in the field of technology, to help you in your projects. We offer you the best services at the best prices.</p>
             </div>
             <div className="social_media">
-            <box-icon name='facebook-square' type='logo' size='md' ></box-icon>
+            <box-icon type='logo' name='facebook-square' size='md' ></box-icon>
             <box-icon type='logo' name='twitter' size='md'></box-icon>
             <box-icon type='logo' name='instagram' size='md'></box-icon>
             <box-icon type='logo' name='linkedin-square'size='md'></box-icon>

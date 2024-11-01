@@ -10,6 +10,7 @@ const IpContent = () => {
   const [sslData, setSslData] = useState(null);
   const [domainGeolocation, setDomainGeolocation] = useState(null); 
   const [shodanPortData, setShodanPortData] = useState(null);
+  
   const inputRef = useRef(null);
 
   const handleKeyDown = async (event) => {
@@ -19,7 +20,7 @@ const IpContent = () => {
         setError("");
         try {
           // Whois lookup
-          const whoisResponse = await axios.get(`http://localhost:5000/api/ip2whois`, {
+          const whoisResponse = await axios.get(`https://ameya-apiproxy.vercel.app/api/ip2whois`, {
             params: {
               key: "079CEF04BC65F720249A49936FD123FD",
               domain: inputValue,
@@ -27,6 +28,7 @@ const IpContent = () => {
           });
           console.log("Whois Data:", whoisResponse.data);
           setWhoisData(whoisResponse.data);
+          await axios.post('http://localhost:5000/api/ip/save-ip-data', whoisResponse.data)
 
           // DNS check
           const formData = new FormData();
@@ -37,7 +39,7 @@ const IpContent = () => {
             formData,
             {
               headers: {
-                "x-rapidapi-key": "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+                "x-rapidapi-key": "9358d00f51mshcfeb14cce8c8756p11376ejsn0ac937197614",
                 "x-rapidapi-host": "domain-dns-and-mail-security-checker.p.rapidapi.com",
                 "Content-Type": "multipart/form-data",
               },
@@ -52,7 +54,7 @@ const IpContent = () => {
             {
               params: { host: inputValue },
               headers: {
-                "x-rapidapi-key": "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+                "x-rapidapi-key": "9358d00f51mshcfeb14cce8c8756p11376ejsn0ac937197614",
                 "x-rapidapi-host": "ssl-certificate-checker2.p.rapidapi.com",
               },
             }
@@ -72,15 +74,26 @@ const IpContent = () => {
           console.log("Domain Geolocation Data:", geolocationResponse.data);
           setDomainGeolocation(geolocationResponse.data); 
           const domainIP = geolocationResponse.data.ip;
-          console.log(typeof(domainIP))
             // Shodan API call
-            // const shodanPortResponse = await axios.get(
-            //   `https://api.shodan.io/shodan/host/${domainIP}?key=1OTfVe0UNGl0Iu7xCcbJy1LgNpnhBBGr`,
+            const shodanPortResponse = await axios.get(
+              `https://ameya-apiproxy.vercel.app/api/shodan/${domainIP}?key=40jNdqloZlT2NV7XKxqQh9gdhBsiDoyr`,{
+                headers:{
+                    "Content-Type": "application/json",
+                }
+              }
     
-            // );
-            // console.log("Shodan Port Data:", shodanPortResponse.data);
-            // setShodanPortData(shodanPortResponse.data); 
-
+            );
+            console.log("Shodan Port Data:", shodanPortResponse.data);
+            setShodanPortData(shodanPortResponse.data); 
+            const updatedGeolocation = {
+              ...geolocationResponse.data,
+              location: {
+                ...geolocationResponse.data.location,
+                latitude: shodanPortResponse.data.latitude,
+                longitude: shodanPortResponse.data.longitude,
+              },
+            };
+            setDomainGeolocation(updatedGeolocation);
         } catch (error) {
           console.error("Error fetching data:", error);
           setError("Data lookup failed");
@@ -90,14 +103,10 @@ const IpContent = () => {
       }
     }
   };
-
-  // Function to handle input change and clear the error
   const handleChange = (event) => {
     setInputValue(event.target.value);
     setError("");
   };
-
-  // Function to validate the entered URL
   const validateUrl = (urlString) => {
     const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z]{2,6})(\/[\/\w \.-]*)*\/?$/;
     return urlPattern.test(urlString);
@@ -105,17 +114,15 @@ const IpContent = () => {
 
   return (
     <>
-      <div className="page1">
-        <h1>IP VULNERABILITY TRACKER</h1>
+      <div className="page-1">
+        <h1>Search Website</h1>
         <p>
           This is used to perform Vulnerability Scanning on the URL you enter
           below.
         </p>
-        <br />
+        <br/>
         <div className="searchBox">
-          <button className="btnSearch">
-            <i className="fas faSearch"></i>
-          </button>
+         
           <input
             type="text"
             className="inputSearch"
@@ -124,13 +131,18 @@ const IpContent = () => {
             value={inputValue}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="Enter a website's URL..."
+            placeholder="Enter a website's URL"
           />
           {error && <p className="error">{error}</p>}
+          <button className="btnSearch">
+            <i className="fas faSearch"></i>
+          </button>
         </div>
       </div>
 
       <hr />
+
+<div className="cardsection">
 
       {/* Whois Data Card */}
       {whoisData && (
@@ -175,38 +187,60 @@ const IpContent = () => {
 
       {/* DNS Data Card */}
       {dnsData && (
-        <div className="card1">
-          <div className="card-body">
-            <h2>DNS Information</h2>
-            <div className="css-15x27kp">
-              <span className="lbl">A Record</span>
-              <ul>
-                <li><span className="val">{dnsData.a?.[0] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.a?.[1] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.a?.[2] || "N/A"}</span></li>
-              </ul>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">MX Record</span>
-              <ul>
-                <li><span className="val">{dnsData.mx?.[0] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.mx?.[1] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.mx?.[2] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.mx?.[3] || "N/A"}</span></li>
-              </ul>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">CNAME Record</span>
-              <ul>
-                <li><span className="val">{dnsData.ns?.[0] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.ns?.[1] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.ns?.[2] || "N/A"}</span></li>
-                <li><span className="val">{dnsData.ns?.[3] || "N/A"}</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="card1">
+    <div className="card-body">
+      <h2>DNS Information</h2>
+      
+      {/* A Record */}
+      <div className="css-15x27kp">
+        <span className="lbl">A Record</span>
+        <ul>
+          {dnsData.a && dnsData.a.length > 0 ? (
+            dnsData.a.map((record, index) => (
+              <li key={index}>
+                <span className="val">{record}</span>
+              </li>
+            ))
+          ) : (
+            <li><span className="val">N/A</span></li>
+          )}
+        </ul>
+      </div>
+      
+      {/* MX Record */}
+      <div className="css-15x27kp">
+        <span className="lbl">MX Record</span>
+        <ul>
+          {dnsData.mx && dnsData.mx.length > 0 ? (
+            dnsData.mx.map((record, index) => (
+              <li key={index}>
+                <span className="val">{record}</span>
+              </li>
+            ))
+          ) : (
+            <li><span className="val">N/A</span></li>
+          )}
+        </ul>
+      </div>
+      
+      {/* CNAME/NS Record */}
+      <div className="css-15x27kp">
+        <span className="lbl">CNAME Record</span>
+        <ul>
+          {dnsData.ns && dnsData.ns.length > 0 ? (
+            dnsData.ns.map((record, index) => (
+              <li key={index}>
+                <span className="val">{record}</span>
+              </li>
+            ))
+          ) : (
+            <li><span className="val">N/A</span></li>
+          )}
+        </ul>
+      </div>
+    </div>
+  </div>
+)}
 
       {/* SSL Data Card */}
       {sslData && (
@@ -258,9 +292,63 @@ const IpContent = () => {
                 <span className="lbl">Timezone</span>
                 <span className="val">{domainGeolocation.location?.timezone || "NA"}</span>
               </div>
+              <div className="css-15x27kp">
+                <span className="lbl">Coordinates</span>
+                <ul>
+                <li><span className="val">Latitude: {domainGeolocation.location?.latitude || "NA"}</span></li>
+                <li><span className="val">Longitude: {domainGeolocation.location?.longitude || "NA"}</span></li>
+                </ul>
+              </div>
             </div>
           </div>
         )}
+
+         {/* Open Ports Card */}
+         {shodanPortData && (
+  <div className="card1">
+    <div className="card-body">
+      <h2>Port Information</h2>
+      <div className="css-15x27kp">
+        <span className="lbl">Open Ports</span>
+        <ul>
+          {shodanPortData.ports && shodanPortData.ports.length > 0 ? (
+            shodanPortData.ports.map((port, index) => (
+              <li key={index}>
+                <span className="val">{port}</span>
+              </li>
+            ))
+          ) : (
+            <li><span className="val">No open ports found</span></li>
+          )}
+        </ul>
+      </div>
+    </div>
+  </div>
+)}
+{/* Vulnerabilities */}
+{shodanPortData && (
+  <div className="card1">
+    <div className="card-body">
+      <h2>Website Vulnerabilities</h2>
+      <div className="css-15x27kp">
+        <span className="lbl">Potential Risks</span>
+        <ul>
+          {shodanPortData.vulns && shodanPortData.vulns.length > 0 ? (
+            shodanPortData.vulns.map((vuln, index) => (
+              <li key={index}>
+                <span className="val">{vuln}</span>
+              </li>
+            ))
+          ) : (
+            <li><span className="val">No Vulnerabilities found</span></li>
+          )}
+        </ul>
+      </div>
+    </div>
+  </div>
+)}
+
+</div>
 
 
     </>

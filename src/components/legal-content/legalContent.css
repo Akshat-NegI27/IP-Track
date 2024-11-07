@@ -1,49 +1,80 @@
-/* Legal.css */
 .legal-container {
-    background-color: #000000;
-    color: #fff;
-    min-height: 100vh;
-    font-family: 'Times New Roman', serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 28px;
+  margin: 0 20vw;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  /* background-color: #b3b3b3; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  h1 {
+    font-size: 40px;
+    line-height: 60px;
+    padding: 15px 0;
+    width: 80%;
+    border-bottom: #ffffff80 1px solid;
   }
-  
-  h1.top-heading {
-    color: rgb(0, 0, 0);
-    font-size: 4rem; 
-    padding: 20px; 
-    text-transform: uppercase;
-    font-family: gilroyy;
-    background-color: rgb(255, 255, 255);
-    width: 60%;
-    margin-bottom: 30px;
-  }
-  
+  h1,
   h2 {
-    color: #fff;
-    font-size: 1.5rem; 
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 2rem;
-    margin-top: 30px; 
+    font-weight: 800;
   }
-  
-  .legal-container p {
-    font-size: 1rem; 
-    max-width: 830px;
-    color: #ffffff;
-    font-family: helvetica2;
-    padding-bottom: 20px;
+  h2 {
+    font-size: 32px;
+    border-bottom: #ffffff80 1px solid;
+    padding: 24px 0;
+    /* background-color: red; */
+    line-height: 48px;
   }
-  
+  h3 {
+    font-size: 24px;
+    padding: 16px 0;
+    /* background-color: rgb(0, 183, 18); */
+    line-height: 36px;
+  }
+  h3,
+  h4 {
+    font-weight: 700;
+  }
+  h4 {
+    padding: 14px 0;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h5,
+  h6 {
+    line-height: 24px;
+    font-weight: 700;
+  }
+  h6 {
+    font-size: cacl(16px); /* Note: Typo here (cacl should be calc) */
+  }
+  p {
+    margin: 10px 0px;
+  }
   a {
-    color: #1e90ff;
+    text-decoration: none;
+    color: #ffffff80;
   }
-  
-  a:hover {
-    text-decoration:line-through;
+  a:hover,
+  a[rel~="nofollow"] {
+    text-decoration: line-through;
+    color: #ff0000;
   }
-  
+  a[rel~="nofollow"] {
+    color: #ffffff80;
+    text-decoration: none;
+  }
+  a[rel~="nofollow"]:hover {
+    text-decoration: line-through;
+    color: #ff0000;
+  }
+  ul {
+    padding-left: 40px;
+  }
+  #link_Styles1 {
+  }
+}

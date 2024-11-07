@@ -10,6 +10,7 @@ import img6 from '../../img/forbes.svg';
 import Video from "../../img/video.mp4";
 import img1pg4 from '../../img/grid1.jpg';
 import img2pg4 from '../../img/grid2.jpg';
+import arrow from '../../img/arrow_upward.svg';
 import imgpg21 from '../../img/pg21.webp';
 
 import Aos from "aos";
@@ -52,6 +53,39 @@ const AOSs = () =>{
   }, []);
 }
 
+// ------------------------BACK TO TOP------------------------
+const ScrollToTop = () => {
+  useEffect(() => {
+    const backToTopButton = document.querySelector('.backtotop');
+
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    };
+
+    const handleClick = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    backToTopButton.addEventListener('click', handleClick);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      backToTopButton.removeEventListener('click', handleClick);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  return (
+    <div className="backtotop"><img className="arrow" src={arrow} alt="" /></div>
+  );
+};
+// ------------------------BACK TO TOP------------------------
 
 const HomeContent = () => {
   
@@ -67,6 +101,7 @@ const HomeContent = () => {
   return (
     <>
       <PreLoader/>
+      <ScrollToTop></ScrollToTop>
       <AOSs/>
 
         <HelmetProvider>

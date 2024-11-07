@@ -7,15 +7,16 @@ import ame from '../../img/ame.png';
 
 
 function scrollToProfile(index) {
-  document.getElementById(`profile-${index}`).scrollIntoView({ behavior: 'smooth' });
+  document.getElementById(`profile-${index}`).scrollIntoView({ behavior: 'smooth', block: 'center'  });
 }
 
 function Content() {
   const profiles = [
     { name: 'Akshat Negi', role: 'Developer', img: aky, email: 'akshatnegiarchit272003@gmail.com', linkedin: 'https://www.linkedin.com/in/me-akshat-negi/', projects: 'https://github.com/Akshat-NegI27' },
-    { name: 'Ameya Taneja', role: 'Backend Developer', img: ame, email: 'ameyataneja1302@gmail.com', linkedin: 'https://www.linkedin.com/in/ameyataneja/', projects: 'https://github.com/realTNEU' },
-    { name: 'Shreyanshi Dobhal', role: 'DataBase Manager', img: shr, email: 'example@example.com', linkedin: '#', projects: '#' },
-    { name: 'Arush Dubey', role: 'FrontEnd Developer', img: aru, email: 'arushdubey360@gmail.com', linkedin: 'https://www.linkedin.com/in/arush-dubey-358840244/', projects: 'http://github.com/ADIR360?tab=repositories' }
+    { name: 'Ameya Taneja', role: 'Full-Stack Developer', img: ame, email: 'ameyataneja1302@gmail.com', linkedin: 'https://www.linkedin.com/in/ameyataneja/', projects: 'https://github.com/realTNEU' },
+    { name: 'Arush Dubey', role: 'FrontEnd Developer', img: aru, email: 'arushdubey360@gmail.com', linkedin: 'https://www.linkedin.com/in/arush-dubey-358840244/', projects: 'http://github.com/ADIR360?tab=repositories' },
+    { name: 'Shreyanshi Dobhal', role: 'DataBase Manager', img: shr, email: 'example@example.com', linkedin: '#', projects: '#' }
+
   ];
 
   return (

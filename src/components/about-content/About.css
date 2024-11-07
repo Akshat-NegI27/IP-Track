@@ -2,10 +2,9 @@
   padding: 20px;
 }
 
-
 .about-container {
   background-color: #000;
-  color: #ffffff; 
+  color: #ffffff;
   height: 20vh;
   margin-top: 10vh;
   display: flex;
@@ -13,11 +12,10 @@
   align-items: center;
 }
 
-
 h1.top-heading {
   color: rgb(0, 0, 0);
-  font-size: 4rem; 
-  padding: 20px; 
+  font-size: 4rem;
+  padding: 20px;
   text-transform: uppercase;
   font-family: gilroyy;
   background-color: rgb(255, 255, 255);
@@ -70,16 +68,22 @@ h1.top-heading {
   border-bottom: 2px solid black;
   transition: transform 0.3s;
   filter: grayscale(100);
+  margin-bottom: 20px;
   transition: all ease-in-out 500ms;
 }
-.about-card-img:hover{
+.about-card-img:hover {
   transform: scale(1.1);
   filter: none;
 }
 
 /* Card content */
 .about-card-container {
+  font-family: manrope;
+
   text-align: center;
+  h2 {
+    font-family: manrope;
+  }
 }
 
 .about-card-title {
@@ -90,13 +94,28 @@ h1.top-heading {
   text-transform: uppercase;
 }
 
-.about-button {
-  background-color: black;
+.about-buttons {
+  background-color: rgb(0, 0, 0);
   color: white;
   border: none;
-  padding: 8px;
-  cursor: pointer;
+  margin-top: 20px;
+  /* padding: 8px; */
   width: 100%;
+  font-family: manrope;
+  .about-cta {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .about-cta:hover {
+    background-color: #5f5f5f;
+  }
 }
 
 .about-button:hover {
@@ -104,30 +123,26 @@ h1.top-heading {
 }
 
 /* Content below the cards (Profile section) */
-.about-content{
-  margin-top: 40vh;
-}
 
-.container {
+.about-content {
   display: flex;
+  padding: 20px;
   flex-direction: column;
-  gap: 60px;
-  padding: 120px;
+  gap: 8vw;
+  margin-bottom: 8vw;
 }
 
 .about-profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  /* gap: 20px; */
+  flex-direction: row-reverse;
+  gap: 60px;
   padding: 50px;
   height: 70vh;
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff7a;
   border-radius: 10px;
-  margin-top: 10vh;
-  margin-bottom: 30vh;
-  margin-left: 25px;
-  margin-right: 25px;
 }
 
 .about-main {
@@ -137,32 +152,32 @@ h1.top-heading {
 .about-top {
   display: flex;
   flex-direction: column;
-  h1{
+  h1 {
     font-size: 1.2rem;
     text-transform: uppercase;
     font-weight: 100;
     font-family: gilroy;
     letter-spacing: 2px;
   }
-  h3{
+  h3 {
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: 800;
     width: fit-content;
+    font-family: manrope;
     transition: transform 0.3s;
-
   }
-  h3:hover{
+  h3:hover {
     transform: scale(1.05);
   }
-  h4{
+  h4 {
     font-family: gilroy;
     font-weight: 100;
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-bottom: 10px;
   }
-  p{
+  p {
     color: grey;
     font-size: 18px;
     margin-bottom: 20px;
@@ -177,29 +192,6 @@ h1.top-heading {
     color: rgb(255, 255, 255);
     /* background-color: red; */
   }
-}
-
-
-
-
-
-
-.about-buttons{
-  margin-top: 20px;
-}
-
-.about-cta{
-  text-decoration: none;
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.about-cta:hover {
-  background-color: #5f5f5f;
 }
 
 /* Profile Image */

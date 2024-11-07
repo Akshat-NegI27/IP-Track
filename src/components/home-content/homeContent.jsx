@@ -262,8 +262,8 @@ const HomeContent = () => {
             </div>
 
             <div className="text-content">
-              <h1>NEW CONTENT</h1>
-              <p>Hi, my name is Lu Yu, I am a designer working in visual communication, with a focus on interaction design & art direction. I was raised in China, and have spent time living and working in Melbourne, Istanbul, and Berlin. Currently open for freelance collaborations. Previously Head of Brand at Pitch. Jury member of Awwwards & Digital Design award.
+              <h1>Informatics</h1>
+              <p>The IP Vulnerability Tracker is an essential tool for cybersecurity, providing real-time monitoring and automated scanning of IP addresses to detect vulnerabilities. It delivers detailed risk analysis, integrates with SIEM systems, and offers threat intelligence updates. Stay proactive in identifying and mitigating risks to enhance your network security.
                 </p></div>
             </div>
         </div>
@@ -287,7 +287,7 @@ const HomeContent = () => {
 
         <h1 data-scroll data-scroll-speed="0.01" >Get in touch.</h1>        
       <Swiper
-      data-scroll data-scroll-speed="0.2"
+      // data-scroll data-scroll-speed="0.2"
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{

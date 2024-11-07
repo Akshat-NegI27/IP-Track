@@ -510,16 +510,21 @@
         font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 0.2em;
+        text-align: center;
+        width: 85%;
         color: #ffffff;
+        /* background-color: red; */
+
         /* border: #ffffff solid 3px; */
       }
       p {
         margin-top: 20px;
+        /* background-color: aqua; */
         font-size: 18px;
         font-family: patron-r;
         font-weight: 200;
         color: rgb(113, 112, 115);
-        width: 70%;
+        width: 85%;
         text-align: left;
         /* border: #ffffff solid 3px; */
         line-height: 34px;

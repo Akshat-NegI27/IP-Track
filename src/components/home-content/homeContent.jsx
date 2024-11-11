@@ -19,6 +19,7 @@ import 'aos/dist/aos.css'
 //Smooth Scroll Animation
 import LocomotiveScroll from 'locomotive-scroll';
 const locomotiveScroll = new LocomotiveScroll();
+
 import "../../assets/animations/locomotive-scroll.css";
 
 // import { Helmet } from "react-helmet";
@@ -57,7 +58,8 @@ const AOSs = () =>{
 const ScrollToTop = () => {
   useEffect(() => {
     const backToTopButton = document.querySelector('.backtotop');
-
+  // Initially hide the button
+  backToTopButton.style.display = 'none';
     const handleScroll = () => {
       if (window.scrollY > 300) {
         backToTopButton.style.display = 'block';
@@ -125,9 +127,9 @@ const HomeContent = () => {
           <p data-scroll data-scroll-speed="0.1" >The IP analysis system is designed to be versatile, with a wide range of applications across various industries and sectors. Its ability to detect and mitigate network security threats in real-time makes it an invaluable tool for any organization that relies on digital infrastructure.
           </p>
           <div data-scroll data-scroll-speed="0.1" id="trio-buttons">
-            <h4> Information </h4>
-            <h4> Data </h4>
-            <h4> Vulnerablity </h4>
+            <h2> Information </h2>
+            <h2> Data </h2>
+            <h2> Vulnerablity </h2>
           </div>
 
 

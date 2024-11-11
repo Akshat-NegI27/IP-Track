@@ -16,17 +16,11 @@ const Navbar=()=>{
 <li><Link id="link_Styles" to={"/Contact"}> CONTACT </Link></li>
 </ul>
 </div>
-<div className="sidebar">
-<ul>
-<li><Link id="link_Styles" to={"/"}> HOME </Link></li>
-<li><Link id="link_Styles" to={"/IpTracker"}> IP TRACKER </Link></li>
-<li><Link id="link_Styles" to={"/About"}> ABOUT </Link></li>
-<li><Link id="link_Styles" to={"/Legal"}> LEGAL </Link></li>
-<li><Link id="link_Styles" to={"/Contact"}> CONTACT </Link></li>
-</ul>
-</div>
-<button onClick={showSidebar}>LOGIN <box-icon type='solid' name='user'></box-icon>
+<Link to="/Login" className="login-button">
+<button>LOGIN <box-icon type='solid' name='user' id='login' ></box-icon>
 </button>
+</Link>
+
       <div id="nav-bottom"></div>
 </nav>
     )

@@ -1,40 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@font-face {
-  font-family: gilroyy;
-  src: url(../../fonts/Gilroy-ExtraBold.otf);
-}
-@font-face {
-  font-family: sfprotext;
-  src: url(../../fonts/SFPRODISPLAYMEDIUM.OTF);
-}
-@font-face {
-  font-family: gilroy;
-  src: url(../../fonts/Gilroy-Light.otf);
-}
-@font-face {
-  font-family: manrope;
-  src: url(../../fonts/Manrope-VariableFont_wght.ttf);
-}
-@font-face {
-  font-family: helvetica2;
-  src: url(../../fonts/helvetica.woff);
-}
-@font-face {
-  font-family: generalsans-medium;
-  src: url(../../fonts/GeneralSans-Medium.otf);
-}
-@font-face {
-  font-family: generalsans-regular;
-  src: url(../../fonts/GeneralSans-Regular.otf);
-}
-@font-face {
-  font-family: patron-m;
-  src: url(../../fonts/Patron-Medium.ttf);
-}
-@font-face {
-  font-family: patron-r;
-  src: url(../../fonts/Patron-Regular.woff2);
-}
+@import url("../../fonts/fonts.css");
 
 * {
   margin: 0;
@@ -292,7 +256,7 @@
       }
     }
   }
-  .image-container {
+  .image-containerx {
     width: 60%;
     height: 70%;
     display: flex;
@@ -302,10 +266,10 @@
       height: 100%;
       object-fit: cover;
     }
-    .image-container:hover .hover-image {
+    /* .image-container:hover .hover-image {
       transform: scale(0.95);
       box-shadow: 0 0 0 10px #ffffff;
-    }
+    } */
   }
   .linear-gradient h6 {
     font-family: gilroyy !important;
@@ -350,10 +314,17 @@
   align-self: flex-end;
 }
 
+.image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .loop-text {
   font-size: clamp(2.5rem, 12vh, 18.5rem);
   text-transform: uppercase;
-  font-family: poppins;
+  font-family: poppins-medium;
   font-weight: 400;
   height: fit-content;
   padding: 0 0.85em;
@@ -407,7 +378,7 @@
     position: absolute;
     width: 100vw;
     height: 150vh;
-    opacity: 98%;
+    opacity: 95%;
     background-repeat: repeat;
     background-image: linear-gradient(360deg, rgb(0, 0, 0), transparent);
     overlay: 100%;
@@ -425,15 +396,15 @@
 }
 
 .page3 video {
-  height: 75vh;
-  width: 75vw;
+  height: 65vh;
+  width: 100%;
   margin-left: 30vh;
   object-fit: cover;
-  margin-bottom: 1vh;
+  margin-bottom: 15vh;
 }
 
 #text-box {
-  width: 80vh;
+  width: 630px;
   margin-top: -16vh;
   background: var(--ec-800);
   color: var(--white);
@@ -451,7 +422,7 @@
   font-size: 48px;
   font-weight: 800;
   line-height: 48px;
-  font-family: "POPPINS";
+  font-family: POPPINS;
 }
 #text-box p {
   color: rgb(218, 218, 218);
@@ -462,7 +433,6 @@
 }
 
 /* -------------Page-4------------- */
-
 .page4 {
   display: flex;
   height: 80vh;
@@ -528,6 +498,11 @@
         text-align: left;
         /* border: #ffffff solid 3px; */
         line-height: 34px;
+        transition: all ease-in-out;
+        transition-duration: 500ms;
+      }
+      p:hover {
+        color: rgb(216, 216, 216);
       }
     }
   }
@@ -539,7 +514,7 @@
   /* Allows border to wrap the image */
 }
 
-.hover-image {
+/* .hover-image {
   display: block;
   width: 700px;
   height: auto;
@@ -550,71 +525,6 @@
 .image-container:hover .hover-image {
   transform: scale(0.95);
   box-shadow: 0 0 0 10px #ffffff;
-}
-
-/* .page4{
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  background-color: #d4d4d4;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.border{
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  width: 92%;
-  height: 80%;
-  border-left: #000000 solid;
-  border-right: #000000 solid;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  h1{
-    font-size: 60px;
-    font-family: generalsans-medium;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #000000;
-  }
-}
-
-.border p{
-  font-size: 20px;
-  font-family: generalsans-regular;
-  font-weight: 400;
-  color: #000000;
-  width: 80%;
-  text-align: center;
-}
-
-.imagesbox{
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  width: 92%;
-  height: fit-content;
-
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.img41{
-  height: 50vh;
-  width: 75vh;
-}
-.img42{
-  height: 50vh;
-  width: 75vh;
-}
-.img43{
-  height: 50vh;
-  width: 500px;
 } */
 
 /* -------------Page-5------------- */
@@ -703,12 +613,12 @@
   width: 700px;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 5px transparent;
+  /* box-shadow: 0 0 0 5px transparent; */
 }
 
 .image-container:hover .hover-image {
-  transform: scale(0.95);
-  box-shadow: 0 0 0 10px #ffffff;
+  transform: scale(0.9);
+  /* box-shadow: 0 0 0 10px #ffffff; */
 }
 
 /* -------------Page-6------------- */
@@ -752,14 +662,44 @@
 
 .slides {
   z-index: 5;
+  /* background-color: red; */
   display: flex;
   justify-content: space-evenly;
   height: 100%;
+  align-items: center;
   padding: 15px 0 15px 0;
+  gap: 20px;
+  margin: 0 20px;
   img {
+    overflow: hidden;
     display: block;
-    width: 24vw;
+    width: 100%;
+    align-items: center;
+    align-content: center;
     height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+.slidesx {
+  z-index: 5;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  align-items: center;
+  padding: 15px 0 15px 0;
+  gap: 20px;
+  margin: 0 20px;
+  img {
+    overflow: hidden;
+    display: block;
+    width: fit-content;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    object-position: center;
     object-fit: cover;
   }
 }

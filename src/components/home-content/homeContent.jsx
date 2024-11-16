@@ -21,10 +21,10 @@ import slide2 from '../../img/slide2.webp';
 
 import slide21 from '../../img/slide21.webp';
 import slide22 from '../../img/slide22.jpg';
-import slide23 from '../../img/slide22.jpg';
-import slide24 from '../../img/slide22.jpg';
+import slide23 from '../../img/slide23.jpg';
+import slide24 from '../../img/slide24.jpg';
 
-import slide31 from '../../img/slide22.jpg';
+import slide31 from '../../img/slide31.webp';
 import slide32 from '../../img/slide32.png';
 import slide33 from '../../img/slide33.jpg';
 
@@ -244,8 +244,8 @@ const HomeContent = () => {
               <img loading="lazy" className="hover-image" src={img2pg5} alt="" />
             </div>
             <div className="text-content">
-              <h1>NEW CONTENT</h1>
-              <p>Hi, my name is Lu Yu, I am a designer working in visual communication, with a focus on interaction design & art direction. I was raised in China, and have spent time living and working in Melbourne, Istanbul, and Berlin. Currently open for freelance collaborations. Previously Head of Brand at Pitch. Jury member of Awwwards & Digital Design award.
+              <h1>About</h1>
+              <p>Our platform is designed to be user-friendly, with a simple and intuitive interface that allows users to easily navigate and access the information they need. The system provides detailed reports and alerts, enabling users to quickly identify and respond to potential threats. With real-time monitoring and automated scanning, the IP Vulnerability Tracker is a powerful tool for enhancing network security.
                 </p></div>
             </div>
         </div>

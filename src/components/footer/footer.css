@@ -104,14 +104,34 @@ li.service_name {
 }
 
 .service_header li a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1px;
+  color: inherit;
   font-family: "Rubik", sans-serif;
   color: #a9a9a9;
   font-weight: 400;
-  padding-bottom: 1px;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
 }
+
 .service_header li a:hover {
-  color: #000000;
-  text-decoration: line-through;
+  color: #000;
+}
+
+.service_header li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #000000;
+  transition: width 0.3s ease-in-out;
+}
+
+.service_header li a:hover::after {
+  width: 100%;
 }
 
 .service_header li {

@@ -60,6 +60,9 @@ const ContactContent = () => {
         <h1>how can we help You?</h1>
       </div>
       <div className="scroll-container">
+        <div className="bgtxt">
+          <h2>CONTACT US</h2>
+        </div>
         <div className="grid-container">
           <div className="map-container">
             <h2 className="heading">Our Location</h2>

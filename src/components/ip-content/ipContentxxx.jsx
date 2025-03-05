@@ -34,24 +34,24 @@ const IpContent = () => {
           console.log("Whois Data:", whoisResponse.data);
           setWhoisData(whoisResponse.data);
           // DNS check
-          const formData = new FormData();
-          formData.append("domain", inputValue);
+          // const formData = new FormData();
+          // formData.append("domain", inputValue);
 
-          const dnsResponse = await axios.post(
-            "https://domain-dns-and-mail-security-checker.p.rapidapi.com/data",
-            formData,
-            {
-              headers: {
-                "x-rapidapi-key":
-                  "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
-                "x-rapidapi-host":
-                  "domain-dns-and-mail-security-checker.p.rapidapi.com",
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-          console.log("DNS Data:", dnsResponse.data);
-          setDnsData(dnsResponse.data);
+          // const dnsResponse = await axios.post(
+          //   "https://domain-dns-and-mail-security-checker.p.rapidapi.com/data",
+          //   formData,
+          //   {
+          //     headers: {
+          //       "x-rapidapi-key":
+          //         "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+          //       "x-rapidapi-host":
+          //         "domain-dns-and-mail-security-checker.p.rapidapi.com",
+          //       "Content-Type": "multipart/form-data",
+          //     },
+          //   }
+          // );
+          // console.log("DNS Data:", dnsResponse.data);
+          // setDnsData(dnsResponse.data);
           const dnsData = {};
           // SSL Certificate check
           const sslResponse = await axios.get(

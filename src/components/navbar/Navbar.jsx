@@ -10,7 +10,7 @@ const Navbar=()=>{
 <div className="nav-part2">
 <ul>
 <li><Link id="link_Styles" to={"/"}> HOME </Link></li>
-<li><Link id="link_Styles" to={"/IpTracker"}> IP TRACKER </Link></li>
+<li><Link id="link_Styles" to={"/Login"}> IP TRACKER </Link></li>
 <li><Link id="link_Styles" to={"/About"}> ABOUT </Link></li>
 <li><Link id="link_Styles" to={"/Legal"}> LEGAL </Link></li>
 <li><Link id="link_Styles" to={"/Contact"}> CONTACT </Link></li>

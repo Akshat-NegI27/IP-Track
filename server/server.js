@@ -12,6 +12,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/ip', require('./routes/ipRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

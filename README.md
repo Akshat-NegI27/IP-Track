@@ -1,6 +1,6 @@
 # Vulnerability Tracker Project
 
-## Abstract
+## Abstract 
 This report presents a comprehensive analysis of Internet Protocol (IP) data, focusing on detecting and mitigating security threats within a network. The project leverages advanced algorithms to identify and classify IP traffic anomalies, with the aim of enhancing network security. By analyzing sample IP data and employing a reference algorithm, the project highlights vulnerabilities, mitigates risks, and improves overall network efficiency.
 
 ## Introduction

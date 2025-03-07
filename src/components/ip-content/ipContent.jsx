@@ -10,8 +10,6 @@ const IpContent = () => {
   const [sslData, setSslData] = useState(null);
   const [domainGeolocation, setDomainGeolocation] = useState(null);
   const [shodanPortData, setShodanPortData] = useState(null);
-  const [weatherData, setWeatherData] = useState(null);
-  const [newsData, setNewsData] = useState(null);
 
   const inputRef = useRef(null);
 
@@ -34,24 +32,24 @@ const IpContent = () => {
           console.log("Whois Data:", whoisResponse.data);
           setWhoisData(whoisResponse.data);
           // DNS check
-          const formData = new FormData();
-          formData.append("domain", inputValue);
+          // const formData = new FormData();
+          // formData.append("domain", inputValue);
 
-          const dnsResponse = await axios.post(
-            "https://domain-dns-and-mail-security-checker.p.rapidapi.com/data",
-            formData,
-            {
-              headers: {
-                "x-rapidapi-key":
-                  "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
-                "x-rapidapi-host":
-                  "domain-dns-and-mail-security-checker.p.rapidapi.com",
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-          console.log("DNS Data:", dnsResponse.data);
-          setDnsData(dnsResponse.data);
+          // const dnsResponse = await axios.post(
+          //   "https://domain-dns-and-mail-security-checker.p.rapidapi.com/data",
+          //   formData,
+          //   {
+          //     headers: {
+          //       "x-rapidapi-key":
+          //         "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
+          //       "x-rapidapi-host":
+          //         "domain-dns-and-mail-security-checker.p.rapidapi.com",
+          //       "Content-Type": "multipart/form-data",
+          //     },
+          //   }
+          // );
+          // console.log("DNS Data:", dnsResponse.data);
+          // setDnsData(dnsResponse.data);
           const dnsData = {};
           // SSL Certificate check
           const sslResponse = await axios.get(
@@ -60,7 +58,7 @@ const IpContent = () => {
               params: { host: inputValue },
               headers: {
                 "x-rapidapi-key":
-                  "85c0653b73msh2957a264c83efb2p1f17d3jsncf5bd4460b26",
+                  "9358d00f51mshcfeb14cce8c8756p11376ejsn0ac937197614",
                 "x-rapidapi-host": "ssl-certificate-checker2.p.rapidapi.com",
               },
             }
@@ -81,7 +79,6 @@ const IpContent = () => {
           console.log("Domain Geolocation Data:", geolocationResponse.data);
           setDomainGeolocation(geolocationResponse.data);
           const domainIP = geolocationResponse.data.ip;
-          const domainGeo = geolocationResponse.data.location.region;
           // Shodan API call
           const shodanPortResponse = await axios.get(
             `https://ameya-apiproxy.vercel.app/api/shodan/${domainIP}?key=40jNdqloZlT2NV7XKxqQh9gdhBsiDoyr`,
@@ -101,40 +98,6 @@ const IpContent = () => {
               longitude: shodanPortResponse.data.longitude,
             },
           };
-          const geoLatitude = shodanPortResponse.data.latitude;
-          const geoLongitude = shodanPortResponse.data.longitude;
-          //news api call
-
-          const newsResponse = await axios.get(
-            `https://newsapi.org/v2/everything`,
-            {
-              params: {
-                q: `${inputValue}`,
-                sortBy: "popularity",
-                apikey: "ed9faeabc6244733af39fb111e9dc1dd",
-                language: "en",
-              },
-            }
-          );
-          const newsResponseArticles = newsResponse.data.articles.slice(0, 5);
-          setNewsData(newsResponseArticles);
-          console.log("Domain Region News response: ", newsResponseArticles);
-          // weather api
-          const weatherResponse = await axios.get(`https://weatherapi-com.p.rapidapi.com/current.json`,
-            {
-              params:{
-                q: `${geoLatitude}, ${geoLongitude}`
-              },
-              headers:{
-                "x-rapidapi-key": "facc61e5b8msh4021d32a5208244p1ecde7jsnc6676ad1119f",
-                "x-rapidapi-host":"weatherapi-com.p.rapidapi.com",
-              }
-            }
-          );
-          var weatherResponseData = weatherResponse.data
-          console.log('Weather Data: ', weatherResponseData)
-          setWeatherData(weatherResponseData)
-
           setDomainGeolocation(updatedGeolocation);
           const domainIpData = {
             domainName: whoisResponse.data.domain,
@@ -145,6 +108,9 @@ const IpContent = () => {
             registryDomainId: whoisResponse.data.domain_id,
             registrarWhoisServer: whoisResponse.data.whois_server,
             ianaId: whoisResponse.data.registrar.iana_id,
+            aRecords: dnsData.a || [],
+            mxRecords: dnsData.mx || [],
+            nsRecords: dnsData.ns || [],
             sslIssuerC: sslData?.issuer?.C || "NA",
             sslIssuerO: sslData?.issuer?.O || "NA",
             sslIssuerCN: sslData?.issuer?.CN || "NA",
@@ -154,15 +120,10 @@ const IpContent = () => {
             ipAddress: domainGeolocation?.ip || "NA",
             geolocationCountry: domainGeolocation?.location?.country || "NA",
             geolocationLatitude: domainGeolocation?.location?.latitude || "NA",
-            geolocationLongitude:
-              domainGeolocation?.location?.longitude || "NA",
+            geolocationLongitude: domainGeolocation?.location?.longitude || "NA",
             shodanPorts: shodanPortData?.ports || [],
           };
-
-          await axios.post(
-            "http://localhost:5000/api/ip/save-ip-data",
-            domainIpData
-          );
+          await axios.post("http://localhost:5000/api/ip/save-ip-data", domainIpData);
         } catch (error) {
           console.error("Error fetching data:", error);
           setError("Data lookup failed");
@@ -449,126 +410,9 @@ const IpContent = () => {
             </div>
           </div>
         )}
-
-        {/* News */}
-        {newsData && newsData.length > 0 && (
-          <div className="card1">
-            <div className="card-body">
-              <h2>Domain-Related News</h2>
-              <div className="css-15x27kp">
-                <ol>
-                  {newsData.map((article, index) => (
-                    <li key={index}>
-                      <span className="val">
-                        {article.title || "No Title Available"}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Weather Data */}
-        {weatherData &&(
-          <div className="card1">
-          <div className="card-body">
-            <h2>Weather Data</h2>
-            <div className="css-15x27kp">
-              <span className="lbl">Country</span>
-              <span className="val">{weatherData.location?.country || "NA"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Region</span>
-              <span className="val">{weatherData.location?.region || "NA"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Name</span>
-              <span className="val">{weatherData.location?.name || "NA"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Timezone</span>
-              <span className="val">{weatherData.location?.tz_id || "NA"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Weather Condition</span>
-              <span className="val">{weatherData.current?.condition?.text || "N/A"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Humidity</span>
-              <span className="val">{weatherData.current?.humidity || "N/A"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Heat Index</span>
-              <span className="val">{weatherData.current?.heatindex_c +"°C"|| "N/A"}</span>
-              <span className="val">{weatherData.current?.heatindex_f +"°F"|| "N/A"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Temperature</span>
-              <span className="val">{weatherData.current?.temp_c +"°C" || "N/A"}</span>
-              <span className="val">{weatherData.current?.temp_f +"°F"|| "N/A"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Wind Speed</span>
-              <span className="val">{weatherData.current?.wind_kph+ "km/h" || "N/A"}</span>
-              <span className="val">{weatherData.current?.wind_mph+ "mi/h" || "N/A"}</span>
-            </div>
-            <div className="css-15x27kp">
-              <span className="lbl">Wind Direction</span>
-              <span className="val">{weatherData.current?.wind_dir || "N/A"}</span>
-            </div>
-            
-          </div>
-        </div>
-        )}
       </div>
     </>
   );
 };
 
 export default IpContent;
-
-/* 
-{whoisData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2>Domain Whois</h2>
-              <div className="css-15x27kp">
-                <span className="lbl">Website</span>
-                <span className="val">{inputValue}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Registrar</span>
-                <span className="val">{whoisData.registrar?.name || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Creation Date</span>
-                <span className="val">{whoisData.create_date || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Update Date</span>
-                <span className="val">{whoisData.update_date || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Expires</span>
-                <span className="val">{whoisData.expire_date || "N/A"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Registry Domain ID</span>
-                <span className="val">{whoisData.domain_id || "N/A"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Registrar WHOIS Server</span>
-                <span className="val">{whoisData.whois_server || "N/A"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">Registrar IANA ID</span>
-                <span className="val">
-                  {whoisData.registrar?.iana_id || "N/A"}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
-          */

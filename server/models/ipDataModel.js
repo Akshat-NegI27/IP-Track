@@ -25,4 +25,4 @@ const ipDataSchema = new mongoose.Schema({
   shodanPorts: { type: [Number], default: [] }
 }, { timestamps: true });
 
-module.exports = mongoose.model('IPData', ipDataSchema, 'ipData');
+module.exports = mongoose.model('IPData', ipDataSchema);

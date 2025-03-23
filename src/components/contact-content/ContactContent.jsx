@@ -1,19 +1,19 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
-import LocomotiveScroll from 'locomotive-scroll';
-import './ContactContent.css';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import LocomotiveScroll from "locomotive-scroll";
+import "./ContactContent.css";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const ContactContent = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    topic: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    topic: "",
+    message: "",
   });
 
-  const [feedback, setFeedback] = useState('');
+  const [feedback, setFeedback] = useState("");
   const formRef = useRef(null);
 
   const handleChange = (e) => {
@@ -27,28 +27,35 @@ const ContactContent = () => {
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_7c9qd09', 'template_h6gq1m2', formRef.current, 'HnM8VT7Sq8Mc3wvpd')
+    emailjs
+      .sendForm(
+        "service_7c9qd09",
+        "template_h6gq1m2",
+        formRef.current,
+        "HnM8VT7Sq8Mc3wvpd"
+      )
       .then(
         () => {
-          setFeedback('Look at the stars Look how they shine for you And everything you do Yeah, they were all yellow');
+          setFeedback(
+            "Look at the stars Look how they shine for you And everything you do Yeah, they were all yellow"
+          );
           setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            topic: '',
-            message: ''
+            firstName: "",
+            lastName: "",
+            email: "",
+            topic: "",
+            message: "",
           });
         },
         (error) => {
           setFeedback(`FAILED... ${error.text}`);
-        },
+        }
       );
-
   }, []);
 
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll({
-      el: document.querySelector('#scroll-container'),
+      el: document.querySelector("#scroll-container"),
       smooth: true,
     });
     return () => locomotiveScroll.destroy();
@@ -56,7 +63,7 @@ const ContactContent = () => {
 
   return (
     <>
-          <div className="section2">
+      <div className="section2">
         <h1>how can we help You?</h1>
       </div>
       <div className="scroll-container">
@@ -80,7 +87,9 @@ const ContactContent = () => {
             <h2 className="mainHeading">Feel Free to Contact Us</h2>
             <form className="formx" ref={formRef} onSubmit={handleSubmit}>
               <div className="inputGroup">
-                <label className="label" htmlFor="firstName">First Name</label>
+                <label className="label" htmlFor="firstName">
+                  First Name
+                </label>
                 <input
                   type="text"
                   name="firstName"
@@ -91,7 +100,9 @@ const ContactContent = () => {
                 />
               </div>
               <div className="inputGroup">
-                <label className="label" htmlFor="lastName">Last Name</label>
+                <label className="label" htmlFor="lastName">
+                  Last Name
+                </label>
                 <input
                   type="text"
                   name="lastName"
@@ -102,7 +113,9 @@ const ContactContent = () => {
                 />
               </div>
               <div className="inputGroup">
-                <label className="label" htmlFor="email">Email</label>
+                <label className="label" htmlFor="email">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -113,7 +126,9 @@ const ContactContent = () => {
                 />
               </div>
               <div className="inputGroup">
-                <label className="label" htmlFor="topic">Topic</label>
+                <label className="label" htmlFor="topic">
+                  Topic
+                </label>
                 <input
                   type="text"
                   name="topic"
@@ -124,7 +139,9 @@ const ContactContent = () => {
                 />
               </div>
               <div className="inputGroup">
-                <label className="label" htmlFor="message">Message</label>
+                <label className="label" htmlFor="message">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   id="message"
@@ -133,7 +150,9 @@ const ContactContent = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button type="submit" className="styled-button">Submit</button>
+              <button type="submit" className="styled-button">
+                Submit
+              </button>
             </form>
             {feedback && <p>{feedback}</p>}
           </div>
@@ -141,24 +160,66 @@ const ContactContent = () => {
       </div>
       <HelmetProvider>
         <Helmet>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></link>
-         </Helmet>
-        </HelmetProvider>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          ></link>
+        </Helmet>
+      </HelmetProvider>
 
       <div class="social-media-container">
-  <p class="title">Follow Us</p>
-  <ul class="social-media-list">
-  <li><a href="#"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-spotify"></i><span>Spotify</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-tiktok"></i><span>TikTok</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-twitter"></i><span>Twitter</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-snapchat"></i><span>Snapchat</span></a></li>
-    <li><a href="#"><i class="fa-brands fa-apple"></i><span>Apple</span></a></li>
-  </ul>
-</div>
-
+        <p class="title">Follow Us</p>
+        <ul class="social-media-list">
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-youtube"></i>
+              <span>YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-spotify"></i>
+              <span>Spotify</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-tiktok"></i>
+              <span>TikTok</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-snapchat"></i>
+              <span>Snapchat</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-brands fa-apple"></i>
+              <span>Apple</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };

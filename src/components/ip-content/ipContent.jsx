@@ -120,10 +120,14 @@ const IpContent = () => {
             ipAddress: domainGeolocation?.ip || "NA",
             geolocationCountry: domainGeolocation?.location?.country || "NA",
             geolocationLatitude: domainGeolocation?.location?.latitude || "NA",
-            geolocationLongitude: domainGeolocation?.location?.longitude || "NA",
+            geolocationLongitude:
+              domainGeolocation?.location?.longitude || "NA",
             shodanPorts: shodanPortData?.ports || [],
           };
-          await axios.post("http://localhost:5000/api/ip/save-ip-data", domainIpData);
+          await axios.post(
+            "http://localhost:5000/api/ip/save-ip-data",
+            domainIpData
+          );
         } catch (error) {
           console.error("Error fetching data:", error);
           setError("Data lookup failed");

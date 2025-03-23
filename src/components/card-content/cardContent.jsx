@@ -1,5 +1,10 @@
-import React from 'react';
-import { Card, CardBody, CardFooter, Typography } from '@material-tailwind/react';
+import React from "react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+} from "@material-tailwind/react";
 
 const CardComponent = ({ title, data }) => {
   return (

@@ -1,15 +1,14 @@
-import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import LegalContent from '../../components/login-content/login'
+import React from "react";
+import Navbar from "../../components/navbar/Navbar";
+import LegalContent from "../../components/login-content/login";
 import Footer from "../../components/footer/footer";
 const Login = () => {
   return (
     <>
-    <Navbar/>
-    <LegalContent/>
-   <Footer/>
+      <Navbar />
+      <LegalContent />
+      <Footer />
     </>
-
-  )
-}
-export default Login
+  );
+};
+export default Login;

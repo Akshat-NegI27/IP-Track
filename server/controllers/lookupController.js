@@ -1,15 +1,31 @@
 const axios = require('axios');
 
+const sanitizeDomain = (input) => {
+  try {
+    let domain = input.trim().toLowerCase();
+    // Remove protocol
+    domain = domain.replace(/^(https?:\/\/)/, "");
+    // Remove path and query strings
+    domain = domain.split(/[/?#]/)[0];
+    // Remove 'www.' if present
+    domain = domain.replace(/^www\./, "");
+    return domain;
+  } catch (error) {
+    return input;
+  }
+};
+
 exports.performLookup = async (req, res) => {
-  const { domain } = req.query;
+  let { domain } = req.query;
+  domain = sanitizeDomain(domain);
 
   if (!domain) {
     return res.status(400).json({ message: 'Domain or IP is required' });
   }
 
   try {
-    // 1. Whois lookup (using IP2Whois via the provided key)
-    const whoisPromise = axios.get(`https://ameya-apiproxy.vercel.app/api/ip2whois`, {
+    // 1. Whois lookup (using IP2Whois v2)
+    const whoisPromise = axios.get(`https://api.ip2whois.com/v2`, {
       params: {
         key: process.env.WHOIS_API_KEY,
         domain: domain,
@@ -42,16 +58,22 @@ exports.performLookup = async (req, res) => {
       return { data: null };
     });
 
-    // 4. DNS Information check
-    const dnsPromise = axios.get(`https://ameya-apiproxy.vercel.app/api/dns`, {
-      params: { domain: domain },
-    }).catch(err => {
-      console.error('DNS Lookup Error:', err.message);
-      return { data: null };
-    });
+    // 4. DNS Information check (Google DNS over HTTPS)
+    const dnsFetch = async (type) => {
+      try {
+        const res = await axios.get(`https://dns.google/resolve`, {
+          params: { name: domain, type: type }
+        });
+        return res.data.Answer?.map(ans => ans.data) || [];
+      } catch (err) {
+        console.error(`DNS ${type} Lookup Error:`, err.message);
+        return [];
+      }
+    };
+    const dnsPromise = Promise.all([dnsFetch('A'), dnsFetch('MX'), dnsFetch('NS')]).then(([a, mx, ns]) => ({ a, mx, ns }));
 
     // Wait for all lookups
-    const [whoisRes, sslRes, geoRes, dnsRes] = await Promise.all([whoisPromise, sslPromise, geoPromise, dnsPromise]);
+    const [whoisRes, sslRes, geoRes, dnsData] = await Promise.all([whoisPromise, sslPromise, geoPromise, dnsPromise]);
 
     const domainIP = geoRes.data?.ip;
     let shodanData = null;
@@ -62,7 +84,7 @@ exports.performLookup = async (req, res) => {
     if (domainIP) {
       // 5. Parallel Security Lookups
       const [shodanRes, abuseRes, greyRes, vtRes] = await Promise.allSettled([
-        axios.get(`https://ameya-apiproxy.vercel.app/api/shodan/${domainIP}?key=${process.env.SHODAN_API_KEY}`),
+        axios.get(`https://api.shodan.io/shodan/host/${domainIP}?key=${process.env.SHODAN_API_KEY}`),
         axios.get(`https://api.abuseipdb.com/api/v2/check`, {
           params: { ipAddress: domainIP, maxAgeInDays: 90 },
           headers: { 'Key': process.env.ABUSEIPDB_API_KEY, 'Accept': 'application/json' }
@@ -86,7 +108,7 @@ exports.performLookup = async (req, res) => {
       whoisData: whoisRes.data,
       sslData: sslRes.data,
       geolocationData: geoRes.data,
-      dnsData: dnsRes.data,
+      dnsData: dnsData,
       shodanData: shodanData,
       securityIntelligence: {
         abuseIPDB: abuseData,

@@ -96,15 +96,37 @@
 }
 
 /* Glassmorphism Cards */
-.cardsection {
-  padding: 40px;
-  display: grid;
-  min-height: 50vh;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 25px;
+.results-wrapper {
+  max-width: 100%;
   width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
+  margin: 40px auto 0;
+  padding: 0 40px 40px;
+}
+
+.threat-bar-container {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.cardsection {
+  display: block;
+  min-height: 45vh;
+  column-gap: 24px;
+  width: 100%;
+  column-count: 1;
+  padding: 0 10px;
+}
+
+@media (min-width: 600px) {
+  .cardsection {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .cardsection {
+    column-count: 3;
+  }
 }
 
 .card1 {
@@ -113,7 +135,11 @@
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
-  padding: 24px;
+  padding: 18px;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: slideUp 0.6s ease-out backwards;
 }
@@ -127,10 +153,10 @@
 
 .card-body h2 {
   font-family: 'generalsans-medium', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-primary) !important;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -138,14 +164,14 @@
 
 .card-body h2 i {
   color: var(--accent-purple);
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .css-15x27kp {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   gap: 15px;
 }
@@ -156,7 +182,7 @@
 
 .css-15x27kp span.lbl {
   font-family: 'manrope', sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   color: var(--text-secondary);
   font-weight: 500;
   text-transform: uppercase;
@@ -169,23 +195,28 @@
 
 .css-15x27kp span.lbl i {
   color: var(--accent-purple);
-  width: 18px;
-  margin-right: 12px;
+  width: 16px;
+  margin-right: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.8;
 }
 
-.css-15x27kp span.val {
+.css-15x27kp .val {
   font-family: 'generalsans-medium', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-primary);
   font-weight: 600;
   text-align: right;
+  min-width: 0;
   word-break: break-all;
   overflow-wrap: anywhere;
-  flex-grow: 1;
-  min-width: 0;
+}
+
+.css-15x27kp .wrap-val {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  flex: 1;
 }
 
 @keyframes slideUp {
@@ -226,6 +257,7 @@
   text-transform: uppercase;
   display: inline-block;
 }
+
 .progress-container {
   width: 480px;
   margin-top: 30px;
@@ -266,13 +298,25 @@
 }
 
 @keyframes scanning {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(200%); }
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(200%);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .badge-risk {

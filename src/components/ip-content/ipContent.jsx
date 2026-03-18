@@ -146,312 +146,319 @@ const IpContent = () => {
         {error && <p className="error" style={{ color: '#ff4444', marginTop: '10px', fontSize: '12px' }}>{error}</p>}
       </div>
 
-      <div className="cardsection">
-        {/* Risk Evaluation Gauge */}
-        {(securityData?.abuseIPDB || securityData?.virusTotal) && (
-          <div className="card1" style={{ gridColumn: '1 / -1', background: 'linear-gradient(90deg, rgba(153, 0, 255, 0.1), rgba(0, 210, 255, 0.1))', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
-            <div className="card-body" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <div style={{ position: 'relative', width: '80px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', border: '4px solid rgba(255,255,255,0.1)' }}>
-                  <span style={{ fontSize: '24px', fontWeight: '800', color: (securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? '#ff4444' : '#00c851' }}>
-                    {Math.max(securityData.abuseIPDB?.abuseConfidenceScore || 0, (securityData.virusTotal?.last_analysis_stats?.malicious * 10) || 0)}%
-                  </span>
+      <div className="results-wrapper">
+        <div className="threat-bar-container">
+          {/* Risk Evaluation Gauge */}
+          {(securityData?.abuseIPDB || securityData?.virusTotal) && (
+            <div className="card1" style={{ width: '100%', marginBottom: '25px', background: 'linear-gradient(90deg, rgba(153, 0, 255, 0.1), rgba(0, 210, 255, 0.1))', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
+              <div className="card-body" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  <div style={{ position: 'relative', width: '80px', height: '80px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', border: '4px solid rgba(255,255,255,0.1)' }}>
+                    <span style={{ fontSize: '24px', fontWeight: '800', color: (securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? '#ff4444' : '#00c851' }}>
+                      {Math.max(securityData.abuseIPDB?.abuseConfidenceScore || 0, (securityData.virusTotal?.last_analysis_stats?.malicious * 10) || 0)}%
+                    </span>
+                  </div>
+                  <div>
+                    <h2 style={{ marginBottom: '5px' }}>Overall Threat Level</h2>
+                    <p style={{ margin: 0, opacity: 0.7, fontSize: '13px' }}>
+                      Combined analysis from AbuseIPDB, GreyNoise, and VirusTotal engines.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h2 style={{ marginBottom: '5px' }}>Overall Threat Level</h2>
-                  <p style={{ margin: 0, opacity: 0.7, fontSize: '13px' }}>
-                    Combined analysis from AbuseIPDB, GreyNoise, and VirusTotal engines.
-                  </p>
-                </div>
-              </div>
-              <div className="val">
-                <span className={`badge ${(securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? 'badge-risk' : 'badge-safe'}`} style={{ fontSize: '14px', padding: '8px 20px' }}>
-                  {(securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? 'POTENTIAL THREAT' : 'SECURE / VERIFIED'}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
-        {domainGeolocation && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-shield-alt"></i> Network Intelligence</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-network-wired"></i> IP Address</span>
-                <span className="val">{domainGeolocation.ip || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-server"></i> ISP</span>
-                <span className="val">{domainGeolocation.isp || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-fingerprint"></i> ASN</span>
-                <span className="val">{domainGeolocation.as?.asn || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-user-secret"></i> Proxy/VPN</span>
                 <div className="val">
-                  <span className={`badge ${domainGeolocation.proxy?.vpn || domainGeolocation.proxy?.proxy ? 'badge-risk' : 'badge-safe'}`}>
-                    {domainGeolocation.proxy?.vpn || domainGeolocation.proxy?.proxy ? 'Detected' : 'Clean'}
+                  <span className={`badge ${(securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? 'badge-risk' : 'badge-safe'}`} style={{ fontSize: '14px', padding: '8px 20px' }}>
+                    {(securityData.abuseIPDB?.abuseConfidenceScore > 20 || securityData.virusTotal?.last_analysis_stats?.malicious > 0) ? 'POTENTIAL THREAT' : 'SECURE / VERIFIED'}
                   </span>
                 </div>
               </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-globe-americas"></i> Location</span>
-                <span className="val">{domainGeolocation.location?.city}, {domainGeolocation.location?.country}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-map-marker-alt"></i> Coordinates</span>
-                <span className="val">{domainGeolocation.location?.lat}, {domainGeolocation.location?.lng}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-clock"></i> Timezone</span>
-                <span className="val">{domainGeolocation.location?.timezone || "NA"}</span>
-              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
-        {/* Whois Data Card */}
-        {whoisData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-info-circle"></i> Domain Whois</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-link"></i> Website</span>
-                <span className="val">{inputValue}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-signature"></i> Registrar</span>
-                <span className="val">{whoisData.registrar?.name || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-calendar-plus"></i> Created</span>
-                <span className="val">{whoisData.create_date || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-calendar-times"></i> Expires</span>
-                <span className="val">{whoisData.expire_date || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-id-card"></i> Domain ID</span>
-                <span className="val">{whoisData.domain_id || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-database"></i> WHOIS Server</span>
-                <span className="val">{whoisData.whois_server || "NA"}</span>
-              </div>
-              {whoisData.registrant && (
-                <>
-                  <div className="css-15x27kp">
-                    <span className="lbl"><i className="fas fa-user-tie"></i> Registrant</span>
-                    <span className="val">{whoisData.registrant.name || "NA"}</span>
-                  </div>
-                  <div className="css-15x27kp">
-                    <span className="lbl"><i className="fas fa-building"></i> Organization</span>
-                    <span className="val">{whoisData.registrant.organization || "NA"}</span>
-                  </div>
-                  <div className="css-15x27kp">
-                    <span className="lbl"><i className="fas fa-envelope"></i> Contact</span>
-                    <span className="val">{whoisData.registrant.email || "NA"}</span>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* DNS Data Card */}
-        {dnsData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-atlas"></i> DNS Information</h2>
-              <div className="css-15x27kp">
-                <span className="lbl">A Records</span>
-                <div style={{ textAlign: 'right' }}>
-                  {dnsData.a?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
-                </div>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">MX Records</span>
-                <div style={{ textAlign: 'right' }}>
-                  {dnsData.mx?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
-                </div>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl">NS Records</span>
-                <div style={{ textAlign: 'right' }}>
-                  {dnsData.ns?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
-                </div>
-              </div>
-              {dnsData.txt && dnsData.txt.length > 0 && (
+        <div className="cardsection">
+          {domainGeolocation && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-shield-alt"></i> Network Intelligence</h2>
                 <div className="css-15x27kp">
-                  <span className="lbl">TXT Records</span>
+                  <span className="lbl"><i className="fas fa-network-wired"></i> IP Address</span>
+                  <span className="val">{domainGeolocation.ip || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-server"></i> ISP</span>
+                  <span className="val wrap-val">{domainGeolocation.isp || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-fingerprint"></i> ASN</span>
+                  <span className="val">{domainGeolocation.as?.asn || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-user-secret"></i> Proxy/VPN</span>
+                  <div className="val">
+                    <span className={`badge ${domainGeolocation.proxy?.vpn || domainGeolocation.proxy?.proxy ? 'badge-risk' : 'badge-safe'}`}>
+                      {domainGeolocation.proxy?.vpn || domainGeolocation.proxy?.proxy ? 'Detected' : 'Clean'}
+                    </span>
+                  </div>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-globe-americas"></i> Location</span>
+                  <span className="val">{domainGeolocation.location?.city}, {domainGeolocation.location?.country}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-map-marker-alt"></i> Coordinates</span>
+                  <span className="val">{domainGeolocation.location?.lat}, {domainGeolocation.location?.lng}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-clock"></i> Timezone</span>
+                  <span className="val">{domainGeolocation.location?.timezone || "NA"}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Whois Data Card */}
+          {whoisData && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-info-circle"></i> Domain Whois</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-link"></i> Website</span>
+                  <span className="val">{inputValue}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-signature"></i> Registrar</span>
+                  <span className="val wrap-val">{whoisData.registrar?.name || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-calendar-plus"></i> Created</span>
+                  <span className="val">{whoisData.create_date || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-calendar-times"></i> Expires</span>
+                  <span className="val">{whoisData.expire_date || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-id-card"></i> Domain ID</span>
+                  <span className="val">{whoisData.domain_id || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-database"></i> WHOIS Server</span>
+                  <span className="val">{whoisData.whois_server || "NA"}</span>
+                </div>
+                {whoisData.registrant && (
+                  <>
+                    <div className="css-15x27kp">
+                      <span className="lbl"><i className="fas fa-user-tie"></i> Registrant</span>
+                      <span className="val">{whoisData.registrant.name || "NA"}</span>
+                    </div>
+                    <div className="css-15x27kp">
+                      <span className="lbl"><i className="fas fa-building"></i> Organization</span>
+                      <span className="val">{whoisData.registrant.organization || "NA"}</span>
+                    </div>
+                    <div className="css-15x27kp">
+                      <span className="lbl"><i className="fas fa-envelope"></i> Contact</span>
+                      <span className="val">{whoisData.registrant.email || "NA"}</span>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* DNS Data Card */}
+          {dnsData && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-atlas"></i> DNS Information</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl">A Records</span>
                   <div style={{ textAlign: 'right' }}>
-                    {dnsData.txt.map((r, i) => <div key={i} className="val" style={{fontSize: '10px', opacity: 0.8}}>{r}</div>)}
+                    {dnsData.a?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
                   </div>
                 </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* SSL Data Card */}
-        {sslData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-lock"></i> SSL Certificate</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-certificate"></i> Issuer</span>
-                <span className="val">{sslData.issuer?.CN || "NA"} ({sslData.issuer?.O || "NA"})</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-history"></i> Issued On</span>
-                <span className="val">{sslData.validFrom || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-clock"></i> Valid Until</span>
-                <span className="val">{sslData.validTo || "NA"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-hourglass-half"></i> TTL</span>
-                <span className="val">{sslData.expiresInDays} Days</span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Open Ports Card */}
-        {shodanPortData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-door-open"></i> Port Analysis</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-list-ol"></i> Open Ports</span>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', width: '100%', justifyContent: 'flex-start' }}>
-                  {shodanPortData.ports && shodanPortData.ports.length > 0 ? (
-                    shodanPortData.ports.map((port, index) => (
-                      <span key={index} className="val" style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '6px', flexGrow: 0, width: 'fit-content' }}>{port}</span>
-                    ))
-                  ) : (
-                    <span className="val" style={{ flexGrow: 0 }}>None</span>
-                  )}
-                </div>
-              </div>
-              {shodanPortData.os && (
                 <div className="css-15x27kp">
-                  <span className="lbl"><i className="fas fa-microchip"></i> Operating System</span>
-                  <span className="val">{shodanPortData.os}</span>
-                </div>
-              )}
-              {shodanPortData.hostnames && shodanPortData.hostnames.length > 0 && (
-                <div className="css-15x27kp">
-                  <span className="lbl"><i className="fas fa-server"></i> Hostnames</span>
+                  <span className="lbl">MX Records</span>
                   <div style={{ textAlign: 'right' }}>
-                    {shodanPortData.hostnames.map((h, i) => <div key={i} className="val">{h}</div>)}
+                    {dnsData.mx?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
                   </div>
                 </div>
-              )}
+                <div className="css-15x27kp">
+                  <span className="lbl">NS Records</span>
+                  <div style={{ textAlign: 'right' }}>
+                    {dnsData.ns?.map((r, i) => <div key={i} className="val">{r}</div>) || <span className="val">NA</span>}
+                  </div>
+                </div>
+                {dnsData.txt && dnsData.txt.length > 0 && (
+                  <div className="css-15x27kp">
+                    <span className="lbl">TXT Records</span>
+                    <div style={{ textAlign: 'right' }}>
+                      {dnsData.txt.map((r, i) => <div key={i} className="val" style={{ fontSize: '10px', opacity: 0.8 }}>{r}</div>)}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Vulnerabilities */}
-        {shodanPortData && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-exclamation-triangle"></i> Vulnerabilities</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-bug"></i> CVE Threats</span>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'flex-end' }}>
-                  {shodanPortData.vulns && shodanPortData.vulns.length > 0 ? (
-                    shodanPortData.vulns.map((vuln, index) => (
-                      <span key={index} className="badge badge-risk">{vuln}</span>
-                    ))
-                  ) : (
-                    <span className="badge badge-safe">None Detected</span>
-                  )}
+          {/* SSL Data Card */}
+          {sslData && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-lock"></i> SSL Certificate</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-certificate"></i> Issuer</span>
+                  <span className="val wrap-val">{sslData.issuer?.CN || "NA"} ({sslData.issuer?.O || "NA"})</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-history"></i> Issued On</span>
+                  <span className="val">{sslData.validFrom || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-clock"></i> Valid Until</span>
+                  <span className="val">{sslData.validTo || "NA"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-hourglass-half"></i> TTL</span>
+                  <span className="val">{sslData.expiresInDays} Days</span>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        {/* AbuseIPDB Card */}
-        {securityData?.abuseIPDB && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-biohazard"></i> Threat Intelligence</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-percentage"></i> Abuse Score</span>
-                <div className="val">
-                  <span className={`badge ${securityData.abuseIPDB.abuseConfidenceScore > 50 ? 'badge-risk' : 'badge-safe'}`}>
-                    {securityData.abuseIPDB.abuseConfidenceScore}%
+          )}
+
+          {/* Open Ports Card */}
+          {shodanPortData && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-door-open"></i> Port Analysis</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-list-ol"></i> Open Ports</span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', width: '100%', justifyContent: 'flex-start' }}>
+                    {shodanPortData.ports && shodanPortData.ports.length > 0 ? (
+                      shodanPortData.ports.map((port, index) => (
+                        <span key={index} className="val" style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '6px', flexGrow: 0, width: 'fit-content' }}>{port}</span>
+                      ))
+                    ) : (
+                      <span className="val" style={{ flexGrow: 0 }}>None</span>
+                    )}
+                  </div>
+                </div>
+                {shodanPortData.os && (
+                  <div className="css-15x27kp">
+                    <span className="lbl"><i className="fas fa-microchip"></i> Operating System</span>
+                    <span className="val">{shodanPortData.os}</span>
+                  </div>
+                )}
+                {shodanPortData.hostnames && shodanPortData.hostnames.length > 0 && (
+                  <div className="css-15x27kp">
+                    <span className="lbl"><i className="fas fa-server"></i> Hostnames</span>
+                    <div style={{ textAlign: 'right', flex: 1, minWidth: 0 }}>
+                      {shodanPortData.hostnames.map((h, i) => (
+                        <div key={i} className="val wrap-val">{h}</div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Vulnerabilities */}
+          {shodanPortData && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-exclamation-triangle"></i> Vulnerabilities</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-bug"></i> CVE Threats</span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'flex-end' }}>
+                    {shodanPortData.vulns && shodanPortData.vulns.length > 0 ? (
+                      shodanPortData.vulns.map((vuln, index) => (
+                        <span key={index} className="badge badge-risk">{vuln}</span>
+                      ))
+                    ) : (
+                      <span className="badge badge-safe">None Detected</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          {/* AbuseIPDB Card */}
+          {securityData?.abuseIPDB && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-biohazard"></i> Threat Intelligence</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-percentage"></i> Abuse Score</span>
+                  <div className="val">
+                    <span className={`badge ${securityData.abuseIPDB.abuseConfidenceScore > 50 ? 'badge-risk' : 'badge-safe'}`}>
+                      {securityData.abuseIPDB.abuseConfidenceScore}%
+                    </span>
+                  </div>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-flag"></i> Total Reports</span>
+                  <span className="val">{securityData.abuseIPDB.totalReports}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-history"></i> Last Reported</span>
+                  <span className="val" style={{ fontSize: '11px' }}>{securityData.abuseIPDB.lastReportedAt || "Never"}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* GreyNoise Card */}
+          {securityData?.greyNoise && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-radar"></i> Asset Context</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-tag"></i> Classification</span>
+                  <div className="val">
+                    <span className={`badge ${securityData.greyNoise.classification === 'malicious' ? 'badge-risk' : 'badge-safe'}`}>
+                      {securityData.greyNoise.classification}
+                    </span>
+                  </div>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-user-ninja"></i> Actor</span>
+                  <span className="val">{securityData.greyNoise.actor || "Unknown"}</span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-eye"></i> Visualized</span>
+                  <span className="val">{securityData.greyNoise.visualized ? "Yes" : "No"}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* VirusTotal Card */}
+          {securityData?.virusTotal && (
+            <div className="card1">
+              <div className="card-body">
+                <h2><i className="fas fa-microscope"></i> Malware Analysis</h2>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-skull-crossbones"></i> Malicious</span>
+                  <span className="val" style={{ color: securityData.virusTotal.last_analysis_stats?.malicious > 0 ? '#ff4444' : 'inherit' }}>
+                    {securityData.virusTotal.last_analysis_stats?.malicious}
+                  </span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-exclamation-circle"></i> Suspicious</span>
+                  <span className="val" style={{ color: securityData.virusTotal.last_analysis_stats?.suspicious > 0 ? '#ffbb33' : 'inherit' }}>
+                    {securityData.virusTotal.last_analysis_stats?.suspicious}
+                  </span>
+                </div>
+                <div className="css-15x27kp">
+                  <span className="lbl"><i className="fas fa-check-shield"></i> Harmless</span>
+                  <span className="val" style={{ color: '#00c851' }}>
+                    {securityData.virusTotal.last_analysis_stats?.harmless}
                   </span>
                 </div>
               </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-flag"></i> Total Reports</span>
-                <span className="val">{securityData.abuseIPDB.totalReports}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-history"></i> Last Reported</span>
-                <span className="val" style={{fontSize: '11px'}}>{securityData.abuseIPDB.lastReportedAt || "Never"}</span>
-              </div>
             </div>
-          </div>
-        )}
-
-        {/* GreyNoise Card */}
-        {securityData?.greyNoise && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-radar"></i> Asset Context</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-tag"></i> Classification</span>
-                <div className="val">
-                  <span className={`badge ${securityData.greyNoise.classification === 'malicious' ? 'badge-risk' : 'badge-safe'}`}>
-                    {securityData.greyNoise.classification}
-                  </span>
-                </div>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-user-ninja"></i> Actor</span>
-                <span className="val">{securityData.greyNoise.actor || "Unknown"}</span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-eye"></i> Visualized</span>
-                <span className="val">{securityData.greyNoise.visualized ? "Yes" : "No"}</span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* VirusTotal Card */}
-        {securityData?.virusTotal && (
-          <div className="card1">
-            <div className="card-body">
-              <h2><i className="fas fa-microscope"></i> Malware Analysis</h2>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-skull-crossbones"></i> Malicious</span>
-                <span className="val" style={{ color: securityData.virusTotal.last_analysis_stats?.malicious > 0 ? '#ff4444' : 'inherit' }}>
-                  {securityData.virusTotal.last_analysis_stats?.malicious}
-                </span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-exclamation-circle"></i> Suspicious</span>
-                <span className="val" style={{ color: securityData.virusTotal.last_analysis_stats?.suspicious > 0 ? '#ffbb33' : 'inherit' }}>
-                  {securityData.virusTotal.last_analysis_stats?.suspicious}
-                </span>
-              </div>
-              <div className="css-15x27kp">
-                <span className="lbl"><i className="fas fa-check-shield"></i> Harmless</span>
-                <span className="val" style={{ color: '#00c851' }}>
-                  {securityData.virusTotal.last_analysis_stats?.harmless}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

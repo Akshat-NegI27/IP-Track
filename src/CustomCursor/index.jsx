@@ -35,36 +35,22 @@ const CustomCursor = () => {
   React.useEffect(() => {
     const followMouse = () => {
       positionRef.current.key = requestAnimationFrame(followMouse);
-      const {
-        mouseX,
-        mouseY,
-        destinationX,
-        destinationY,
-        distanceX,
-        distanceY,
-      } = positionRef.current;
+      const { mouseX, mouseY, destinationX, destinationY } = positionRef.current;
+      
       if (!destinationX || !destinationY) {
         positionRef.current.destinationX = mouseX;
         positionRef.current.destinationY = mouseY;
       } else {
-        positionRef.current.distanceX = (mouseX - destinationX) * 0.1;
-        positionRef.current.distanceY = (mouseY - destinationY) * 0.1;
-        if (
-          Math.abs(positionRef.current.distanceX) +
-            Math.abs(positionRef.current.distanceY) <
-          0.1
-        ) {
-          positionRef.current.destinationX = mouseX;
-          positionRef.current.destinationY = mouseY;
-        } else {
-          positionRef.current.destinationX += distanceX;
-          positionRef.current.destinationY += distanceY;
-        }
+        positionRef.current.destinationX += (mouseX - destinationX) * 0.15;
+        positionRef.current.destinationY += (mouseY - destinationY) * 0.15;
       }
-      if (secondaryCursor && secondaryCursor.current)
-        secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`;
+      
+      if (secondaryCursor && secondaryCursor.current) {
+        secondaryCursor.current.style.transform = `translate3d(${positionRef.current.destinationX}px, ${positionRef.current.destinationY}px, 0)`;
+      }
     };
     followMouse();
+    return () => cancelAnimationFrame(positionRef.current.key);
   }, []);
   return (
     <div className={`cursor-wrapper default`}>

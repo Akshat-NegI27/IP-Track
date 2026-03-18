@@ -24,6 +24,20 @@ const ipDataSchema = new mongoose.Schema(
     geolocationLatitude: { type: String, default: "NA" },
     geolocationLongitude: { type: String, default: "NA" },
     shodanPorts: { type: [Number], default: [] },
+    searchQuery: { type: String, required: true },
+    clientIp: { type: String, default: "NA" },
+    isp: { type: String, default: "NA" },
+    asn: { type: String, default: "NA" },
+    asName: { type: String, default: "NA" },
+    isProxy: { type: Boolean, default: false },
+    // Threat Intelligence
+    abuseScore: { type: Number, default: 0 },
+    totalReports: { type: Number, default: 0 },
+    noiseClassification: { type: String, default: "Unknown" },
+    noiseActor: { type: String, default: "None" },
+    maliciousDetections: { type: Number, default: 0 },
+    suspiciousDetections: { type: Number, default: 0 },
+    harmlessDetections: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

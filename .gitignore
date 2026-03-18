@@ -1,4 +1,17 @@
-node_modules
-src/assets/.env
-node_modules
+# Dependency directories
+node_modules/
+dist/
+build/
+
+# Environment variables
 .env
+.env.local
+.env.production
+server/.env
+**/.env
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+*.log

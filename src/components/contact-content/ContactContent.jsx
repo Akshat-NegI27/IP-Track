@@ -78,7 +78,7 @@ const ContactContent = () => {
               width="100%"
               height="90%"
               style={{ border: 0 }}
-              allowFullScreen="true"
+              allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
@@ -167,54 +167,54 @@ const ContactContent = () => {
         </Helmet>
       </HelmetProvider>
 
-      <div class="social-media-container">
-        <p class="title">Follow Us</p>
-        <ul class="social-media-list">
+      <div className="social-media-container">
+        <p className="title">Follow Us</p>
+        <ul className="social-media-list">
           <li>
             <a href="#">
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
               <span>Instagram</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-youtube"></i>
+              <i className="fa-brands fa-youtube"></i>
               <span>YouTube</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-spotify"></i>
+              <i className="fa-brands fa-spotify"></i>
               <span>Spotify</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
               <span>Facebook</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-tiktok"></i>
+              <i className="fa-brands fa-tiktok"></i>
               <span>TikTok</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter"></i>
               <span>Twitter</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-snapchat"></i>
+              <i className="fa-brands fa-snapchat"></i>
               <span>Snapchat</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-brands fa-apple"></i>
+              <i className="fa-brands fa-apple"></i>
               <span>Apple</span>
             </a>
           </li>

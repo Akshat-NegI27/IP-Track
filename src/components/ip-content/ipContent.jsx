@@ -38,7 +38,6 @@ const IpContent = () => {
 
         const { whoisData, sslData, geolocationData, dnsData, shodanData, securityIntelligence } = lookupResponse.data;
 
-        console.log("Lookup Data:", lookupResponse.data);
         setWhoisData(whoisData);
         setSslData(sslData);
         setDomainGeolocation(geolocationData);

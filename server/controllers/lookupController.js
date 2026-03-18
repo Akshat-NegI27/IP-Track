@@ -78,7 +78,7 @@ exports.performLookup = async (req, res) => {
       shodanData = shodanRes.status === 'fulfilled' ? shodanRes.value.data : null;
       abuseData = abuseRes.status === 'fulfilled' ? abuseRes.value.data?.data : null;
       greyNoiseData = greyRes.status === 'fulfilled' ? greyRes.value.data : null;
-      virusTotalData = vtRes.status === 'fulfilled' ? vtRes.value.data?.data : null;
+      virusTotalData = vtRes.status === 'fulfilled' ? vtRes.value.data?.data?.attributes : null;
     }
 
     // Consolidated response
